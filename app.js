@@ -70,12 +70,18 @@
   function calculateProfitsOrLossesForEachStock(stocks) {
 
     var overallSellOutcome = 0;
+    var stocksSells = [];
 
     stocks.forEach(function calculateForStock(stockTransactions) {
 
       stockTransactions = removeCommaFromTheNetAmount(stockTransactions);
 
       var STOCK_SYMBOL = stockTransactions[0]['Stock code'];
+
+      var stockSells = {
+        symbol: STOCK_SYMBOL,
+        sells: []
+      };
 
       console.log('\n\n\n\n🔮 Calculating ' + STOCK_SYMBOL + '\n\n');
 
@@ -196,6 +202,11 @@
           }
 
           finalSellOutcome = finalSellOutcome + sellOutcome;
+
+          stockSells.sells.push({
+            date: transaction['Date'],
+            result: finalSellOutcome
+          });
         }
       });
 
@@ -209,12 +220,16 @@
 
       overallSellOutcome = overallSellOutcome + finalSellOutcome;
 
+      stockSells.overallResult = finalSellOutcome.toFixed(2);
+      stocksSells.push(stockSells);
+
     });
 
     console.debug('\n\n=====================================================');
     console.debug('💰💰💰 Your overall trading results: ' + '£' + overallSellOutcome.toFixed(2));
     console.debug('=====================================================\n\n\n');
 
+    return stocksSells;
   }
 
   function handleFileContent(fileOnLoadEvent) {
@@ -230,13 +245,15 @@
     console.log('Your stocks and transactions:');
     console.log(stocks);
 
-    calculateProfitsOrLossesForEachStock(stocks);
+    var sellOutcomes = calculateProfitsOrLossesForEachStock(stocks);
+
+    console.log(sellOutcomes);
 
     results = stocks.map(tellWhatLossOrProfit);
 
     //getTransactionsOverview(json);
 
-    results.forEach(function (result) {
+    sellOutcomes.forEach(function (result) {
       renderStock(result);
     });
   }
@@ -246,6 +263,30 @@
   }
 
   function renderStock(stock) {
+    var stockName = stock.symbol.split('.')[0];
+    var stockResult = stock.overallResult;
+
+    var $stockContainer = $('<div class="stock"></div>');
+    var $stockName = $('<div class="stock-name">' + stockName + '</div>');
+    var $stockResult;
+
+    console.log(stockResult);
+    
+    if (stockResult > 0) {
+      $stockResult = $('<div class="stock-result profit"><sup class="currency">£</sup>' + parseFloat(stockResult).toLocaleString() + '</div>');
+    } else if (stockResult < 0) {
+      $stockResult = $('<div class="stock-result loss"><sup class="currency">£</sup>' + parseFloat(stockResult).toLocaleString() + '</div>');
+    } else {
+      $stockResult = $('<div class="stock-result no-sell"><sup class="currency">£</sup>' + parseFloat(stockResult).toLocaleString() + '</div>');
+    }
+
+    $stockContainer.append($stockName);
+    $stockContainer.append($stockResult);
+
+    $('[data-app]').append($stockContainer);
+  }
+
+  function deprecated_renderStock(stock) {
     var stockName = stock[0].split('.')[0];
     var stockResult = stock[1];
     var numberOfTrades = stock[2];
