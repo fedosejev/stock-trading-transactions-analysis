@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <title>Stock Trading Transactions Analysis (STTA)</title>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="./styles.css" />
@@ -12,6 +14,20 @@
     <div data-app>
       <div class="landing">
         <div class="logo">💸</div>
+         
+          <form class="form-inline">
+            <div class="form-group">
+              <label for="currency">Choose your currency:</label>
+              <select class="form-control" id="currency" data-js-select-currency>
+                <option value="£">£</option>
+                <option value="$">$</option>
+                <option value="€">€</option>
+                <option value="¥">¥</option>
+                <option value="₽">₽</option>
+              </select>
+            </div>
+          </form>
+
         <h2>Drag and drop CSV file with transaction history here.</h2>
 
         <h3>This app calculates your profits and/or losses from stock trading. We do not save your data. <a href="./example.csv">Download our sample CSV file</a>.</h3>

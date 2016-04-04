@@ -4,6 +4,11 @@
   var COMMISSION = 5.95;
   var CURRENCY_SIGN = '£';
 
+  $('[data-js-select-currency]').on('change', function () {
+    var currencySign = $(this).val();
+    CURRENCY_SIGN = currencySign;
+  });
+
   function fixCsvStringProducedByXO(csvString) {
     var iterator;
     var character;

@@ -77,7 +77,7 @@ a {
   font-size: 18px;
   margin-right: 5px;
   position: relative;
-  top: -5px;
+  top: 10px;
 }
 
 .landing {
@@ -111,6 +111,31 @@ a {
 .landing a:hover {
   text-decoration: none;
   border-bottom: 0;
+}
+
+form {
+  margin: 20px 0;
+}
+
+label {
+  font-size: 26px;
+  margin-right: 10px;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+select {
+  vertical-align: middle;
+}
+
+option {
+  font-size: 26px;
+  text-align: center;
+  padding: 5px;
+}
+
+sup {
+  vertical-align: text-top;
 }
 
 footer {
