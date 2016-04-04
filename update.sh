@@ -1,6 +1,7 @@
 #!/bin/bash
 
+gulp build-for-production
+
 git add .
 git commit -m "Update"
-git push origin master
-git push origin gh-pages
+git push
