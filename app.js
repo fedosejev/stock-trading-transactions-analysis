@@ -251,15 +251,9 @@
 
     results = stocks.map(tellWhatLossOrProfit);
 
-    //getTransactionsOverview(json);
-
     sellOutcomes.forEach(function (result) {
       renderStock(result);
     });
-  }
-
-  function getTransactionsOverview(trades) {
-    console.log(trades);
   }
 
   function renderStock(stock) {
