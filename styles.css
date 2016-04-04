@@ -117,8 +117,8 @@ form {
   margin: 20px 0;
 }
 
-label {
-  font-size: 26px;
+.landing label {
+  font-size: 30px;
   margin-right: 10px;
   font-weight: normal;
   vertical-align: middle;
