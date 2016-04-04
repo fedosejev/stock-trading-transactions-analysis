@@ -48,6 +48,14 @@
     return fixedCsv.join('');
   }
 
+  function removeCommaFromTheNetAmount(transactions) {
+    // Convert 4,567.88 to 4567.88
+    return transactions.map(function (transaction) {
+      transaction['Net value'] = transaction['Net value'].replace(',', '');
+      return transaction;
+    });
+  }
+
   function convertCsvToJson(csv) {
     // Parse CSV string
     var result = Papa.parse(csv, {
@@ -59,19 +67,17 @@
     return result.data;
   }
 
-  function removeCommaFromTheNetAmount(transactions) {
-    return transactions.map(function (transaction) {
-      transaction['Net value'] = transaction['Net value'].replace(',', '');
-      return transaction;
-    });
-  }
-
   function calculateProfitsOrLossesForEachStock(stocks) {
-    stocks.forEach(function (stockTransactions) {
+
+    var overallSellOutcome = 0;
+
+    stocks.forEach(function calculateForStock(stockTransactions) {
 
       stockTransactions = removeCommaFromTheNetAmount(stockTransactions);
 
-      console.log('Calculating ' + stockTransactions[0]['Stock code']);
+      var STOCK_SYMBOL = stockTransactions[0]['Stock code'];
+
+      console.log('\n\n\n\n🔮 Calculating ' + STOCK_SYMBOL + '\n\n');
 
       var totalPaidForAllShares = 0;
       var numberOfShares = 0;
@@ -82,29 +88,44 @@
 
       var finalSellOutcome = 0;
 
-      stockTransactions.forEach(function (transaction) {
+      stockTransactions.forEach(function calculateForTransaction(transaction) {
         if (transaction['Type'] === 'Bought') {
 
           console.log('=== Bought ===');
-
-          console.log(transaction);
 
           var netValuePaid = parseFloat(transaction['Net value']);
           var quantityBought = parseInt(transaction['Quantity']);
           var pricePaidPerShare = netValuePaid / quantityBought;
 
-          buyTransactions.push({
+          var boughtTransaction = {
             netValuePaid: netValuePaid,
             numberOfShares: quantityBought,
-            pricePaidPerShare: pricePaidPerShare
-          });
+            pricePaidPerShare: pricePaidPerShare,
+            date: transaction['Date']
+          };
+
+          console.log(boughtTransaction);
+
+          buyTransactions.push(boughtTransaction);
 
         } else if (transaction['Type'] === 'Sold') {
 
-          console.log('buyTransactions:');
-          console.log(buyTransactions);
-
           console.log('=== Sold ===');
+
+          var netValuePaid = parseFloat(transaction['Net value']);
+          var quantityBought = parseInt(transaction['Quantity']);
+          var pricePaidPerShare = netValuePaid / quantityBought;
+
+          var soldTransaction = {
+            netValuePaid: netValuePaid,
+            numberOfShares: quantityBought,
+            pricePaidPerShare: pricePaidPerShare,
+            date: transaction['Date']
+          };
+
+          console.log(soldTransaction);
+
+          sellTransactions.push(soldTransaction);
 
           buyTransactions.sort(function compare(a, b) {
             if (a.pricePaidPerShare < b.pricePaidPerShare) {
@@ -124,43 +145,49 @@
           for (var i = 0; i < buyTransactions.length; i++) {
             if (buyTransactions[i].numberOfShares === quantitySold) {
 
-              console.debug('=');
-              console.log('Need to sell: ', quantitySold);
+              console.debug('Case: =');
+              console.log('Need to sell:', quantitySold);
+
+              var previousSellOutcome = sellOutcome;
 
               sellOutcome = sellOutcome + (parseFloat(transaction['Net value']) / parseInt(transaction['Quantity']) * quantitySold) - buyTransactions[i].netValuePaid;
 
-              console.log('Actually sold: ' + quantitySold);
+              console.log('Actually sold:', quantitySold);
 
-              console.debug(sellOutcome);
+              console.debug((sellOutcome - previousSellOutcome).toFixed(2));
 
               buyTransactions[i].numberOfShares = buyTransactions[i].numberOfShares - quantitySold;
               break;
 
             } else if (buyTransactions[i].numberOfShares < quantitySold) {
 
-              console.debug('<');
-              console.log('Need to sell: ', quantitySold);
+              console.debug('Case: <');
+              console.log('Need to sell:', quantitySold);
 
               quantitySold = quantitySold - buyTransactions[i].numberOfShares;
 
-              console.log('Actually sold: ' + buyTransactions[i].numberOfShares);
+              console.log('Actually sold:', buyTransactions[i].numberOfShares);
+
+              var previousSellOutcome = sellOutcome;
 
               sellOutcome = sellOutcome + ((parseFloat(transaction['Net value']) / parseInt(transaction['Quantity'])) * buyTransactions[i].numberOfShares) - (buyTransactions[i].pricePaidPerShare * buyTransactions[i].numberOfShares);
 
-              console.debug(sellOutcome);
+              console.debug((sellOutcome - previousSellOutcome).toFixed(2));
 
               buyTransactions[i].numberOfShares = 0;
 
             } else if (buyTransactions[i].numberOfShares > quantitySold) { 
 
-              console.debug('>');
-              console.log('Need to sell: ', quantitySold);
+              console.debug('Case: >');
+              console.log('Need to sell:', quantitySold);
+
+              var previousSellOutcome = sellOutcome;
 
               sellOutcome = sellOutcome + ((parseFloat(transaction['Net value']) / parseInt(transaction['Quantity'])) * quantitySold) - (buyTransactions[i].pricePaidPerShare * quantitySold);
 
-              console.log('Actually sold: ' + quantitySold);
+              console.log('Actually sold:', quantitySold);
 
-              console.debug(sellOutcome);
+              console.debug((sellOutcome - previousSellOutcome).toFixed(2));
 
               buyTransactions[i].numberOfShares = buyTransactions[i].numberOfShares - quantitySold;
               break;
@@ -169,15 +196,25 @@
           }
 
           finalSellOutcome = finalSellOutcome + sellOutcome;
-          console.log('sellOutcome for ' + stockTransactions[0]['Stock code'] + ': ' + sellOutcome);
-
         }
       });
 
-      console.debug('Final SELL outcome:');
-      console.debug(finalSellOutcome);
+      console.debug('\n------------------');
+      if (sellTransactions.length > 0) {
+        console.debug('💰 Final result for ' +  STOCK_SYMBOL + ': ' + '£' + finalSellOutcome.toFixed(2));
+      } else {
+        console.debug('💰 No final result for ' +  STOCK_SYMBOL + ', because you didn\'t sell ' +  STOCK_SYMBOL + ' yet.');
+      }
+      console.debug('------------------');
+
+      overallSellOutcome = overallSellOutcome + finalSellOutcome;
 
     });
+
+    console.debug('\n\n=====================================================');
+    console.debug('💰💰💰 Your overall trading results: ' + '£' + overallSellOutcome.toFixed(2));
+    console.debug('=====================================================\n\n\n');
+
   }
 
   function handleFileContent(fileOnLoadEvent) {
@@ -190,14 +227,14 @@
     json = convertCsvToJson(csv);
     stocks = groupTradesByStock(json);
 
-    console.log('Stocks:');
+    console.log('Your stocks and transactions:');
     console.log(stocks);
 
     calculateProfitsOrLossesForEachStock(stocks);
 
     results = stocks.map(tellWhatLossOrProfit);
 
-    getTransactionsOverview(json);
+    //getTransactionsOverview(json);
 
     results.forEach(function (result) {
       renderStock(result);
