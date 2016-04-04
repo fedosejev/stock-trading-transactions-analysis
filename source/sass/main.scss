@@ -20,10 +20,10 @@ a {
   background: linear-gradient(to left, #fd746c , #ff9068); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */           
   
   color: #fff;
-}
 
-.landing a {
-  color: #fff;
+  a {
+    color: #fff;
+  }
 }
 
 .stock {
@@ -117,11 +117,20 @@ form {
   margin: 20px 0;
 }
 
+.landing [type="radio"] {
+  margin-top: 15px;
+}
+
 .landing label {
   font-size: 30px;
-  margin-right: 10px;
   font-weight: normal;
   vertical-align: middle;
+}
+
+.landing .radio-inline {
+  margin-bottom: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 select {
