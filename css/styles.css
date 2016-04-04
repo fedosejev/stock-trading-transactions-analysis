@@ -1,0 +1,125 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,400italic,700,300italic);
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #333; }
+
+a {
+  color: #333; }
+
+.landing {
+  background: #fd746c;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #fd746c, #ff9068);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #fd746c, #ff9068);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #fff; }
+  .landing a {
+    color: #fff; }
+
+.stock {
+  display: inline-block;
+  margin: 50px 50px 0 50px; }
+
+.stock-name {
+  font-weight: 600;
+  font-size: 25px; }
+
+.stock-holding {
+  font-weight: 300;
+  margin-top: 5px;
+  margin-bottom: 20px; }
+
+.stock-result {
+  font-weight: 200;
+  font-size: 40px;
+  margin-bottom: 20px;
+  margin-top: 10px; }
+
+.stock-commissions {
+  margin-bottom: 5px; }
+
+.stock-commissions small {
+  font-weight: 200; }
+
+.stock-maximum-price-per-share-paid small {
+  font-weight: 200; }
+
+.loss {
+  color: red; }
+
+.profit {
+  color: green; }
+
+.no-sell {
+  color: #777; }
+
+.currency {
+  font-size: 18px;
+  margin-right: 5px;
+  position: relative;
+  top: 10px; }
+
+.landing {
+  text-align: center;
+  text-shadow: 1px 1px 0px #555; }
+
+.landing .logo {
+  font-size: 100px;
+  margin: 60px 0 40px 0; }
+
+.landing h2 {
+  font-weight: 400;
+  margin: 0 0 40px 0;
+  font-size: 30px; }
+
+.landing h3 {
+  font-weight: 400;
+  margin: 0 0 40px 0;
+  font-size: 20px; }
+
+.landing a {
+  text-decoration: none;
+  border-bottom: 1px dotted #fff;
+  padding-bottom: 5px; }
+
+.landing a:hover {
+  text-decoration: none;
+  border-bottom: 0; }
+
+form {
+  margin: 20px 0; }
+
+.landing [type="radio"] {
+  margin-top: 15px; }
+
+.landing label {
+  font-size: 30px;
+  font-weight: normal;
+  vertical-align: middle; }
+
+.landing .radio-inline {
+  margin-bottom: 40px;
+  margin-left: 10px;
+  margin-right: 10px; }
+
+select {
+  vertical-align: middle; }
+
+option {
+  font-size: 26px;
+  text-align: center;
+  padding: 5px; }
+
+sup {
+  vertical-align: text-top; }
+
+footer {
+  margin-top: 40px;
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: 16px; }
