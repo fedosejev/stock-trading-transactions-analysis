@@ -236,7 +236,6 @@
     var csv = fileOnLoadEvent.target.result;
     var json;
     var stocks;
-    var results;
 
     csv = fixCsvStringProducedByXO(csv);
     json = convertCsvToJson(csv);
@@ -246,10 +245,6 @@
     console.log(stocks);
 
     var sellOutcomes = calculateProfitsOrLossesForEachStock(stocks);
-
-    console.log(sellOutcomes);
-
-    results = stocks.map(tellWhatLossOrProfit);
 
     sellOutcomes.forEach(function (result) {
       renderStock(result);
@@ -263,8 +258,6 @@
     var $stockContainer = $('<div class="stock"></div>');
     var $stockName = $('<div class="stock-name">' + stockName + '</div>');
     var $stockResult;
-
-    console.log(stockResult);
     
     if (stockResult > 0) {
       $stockResult = $('<div class="stock-result profit"><sup class="currency">£</sup>' + parseFloat(stockResult).toLocaleString() + '</div>');
@@ -303,7 +296,7 @@
     $('[data-app]').append($stockContainer);
   }
 
-  function tellWhatLossOrProfit(stockTrades) {
+  function deprecated__tellWhatLossOrProfit(stockTrades) {
     var result = 0;
     var sharesHolding = 0;
     var stockName = stockTrades[0]['Stock code'];
