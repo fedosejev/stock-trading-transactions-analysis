@@ -2,6 +2,7 @@
 
   var FILE_NAME = '';
   var COMMISSION = 5.95;
+  var CURRENCY_SIGN = '£';
 
   function fixCsvStringProducedByXO(csvString) {
     var iterator;
@@ -212,7 +213,7 @@
 
       console.debug('\n------------------');
       if (sellTransactions.length > 0) {
-        console.debug('💰 Final result for ' +  STOCK_SYMBOL + ': ' + '£' + finalSellOutcome.toFixed(2));
+        console.debug('💰 Final result for ' +  STOCK_SYMBOL + ': ' + CURRENCY_SIGN + finalSellOutcome.toFixed(2));
       } else {
         console.debug('💰 No final result for ' +  STOCK_SYMBOL + ', because you didn\'t sell ' +  STOCK_SYMBOL + ' yet.');
       }
@@ -226,7 +227,7 @@
     });
 
     console.debug('\n\n=====================================================');
-    console.debug('💰💰💰 Your overall trading results: ' + '£' + overallSellOutcome.toFixed(2));
+    console.debug('💰💰💰 Your overall trading results: ' + CURRENCY_SIGN + overallSellOutcome.toFixed(2));
     console.debug('=====================================================\n\n\n');
 
     return stocksSells;
@@ -260,11 +261,11 @@
     var $stockResult;
     
     if (stockResult > 0) {
-      $stockResult = $('<div class="stock-result profit"><sup class="currency">£</sup>' + parseFloat(stockResult).toLocaleString() + '</div>');
+      $stockResult = $('<div class="stock-result profit"><sup class="currency">' + CURRENCY_SIGN + '</sup>' + parseFloat(stockResult).toLocaleString() + '</div>');
     } else if (stockResult < 0) {
-      $stockResult = $('<div class="stock-result loss"><sup class="currency">£</sup>' + parseFloat(stockResult).toLocaleString() + '</div>');
+      $stockResult = $('<div class="stock-result loss"><sup class="currency">' +  CURRENCY_SIGN + '</sup>' + parseFloat(stockResult).toLocaleString() + '</div>');
     } else {
-      $stockResult = $('<div class="stock-result no-sell"><sup class="currency">£</sup>' + parseFloat(stockResult).toLocaleString() + '</div>');
+      $stockResult = $('<div class="stock-result no-sell"><sup class="currency">' + CURRENCY_SIGN + '</sup>' + parseFloat(stockResult).toLocaleString() + '</div>');
     }
 
     $stockContainer.append($stockName);
@@ -283,9 +284,9 @@
     var $stockContainer = $('<div class="stock"></div>');
     var $stockName = $('<div class="stock-name">' + stockName + '</div>');
     var $stockHolding = $('<div class="stock-holding">' + sharesHolding + ' shares</div>');
-    var $stockResult = $('<div class="stock-result' + (stockResult > 0 ? ' profit' : ' loss') + '"><sup class="currency">£</sup>' + parseFloat(stockResult).toLocaleString() + '</div>');
-    var $stockCommissions = $('<div class="stock-commissions"><small>Commissions (inc): £</small> ' + (numberOfTrades * COMMISSION).toFixed(2) + '</div>');
-    var $maximumPricePaidPerShare = $('<div class="stock-maximum-price-per-share-paid"><small>Max share price paid: £</small> ' + maximumPricePaidPerShare.toFixed(2).toLocaleString() + '</div>');
+    var $stockResult = $('<div class="stock-result' + (stockResult > 0 ? ' profit' : ' loss') + '"><sup class="currency">' + CURRENCY_SIGN + '</sup>' + parseFloat(stockResult).toLocaleString() + '</div>');
+    var $stockCommissions = $('<div class="stock-commissions"><small>Commissions (inc): ' + CURRENCY_SIGN + '</small> ' + (numberOfTrades * COMMISSION).toFixed(2) + '</div>');
+    var $maximumPricePaidPerShare = $('<div class="stock-maximum-price-per-share-paid"><small>Max share price paid: ' + CURRENCY_SIGN + '</small> ' + maximumPricePaidPerShare.toFixed(2).toLocaleString() + '</div>');
 
     $stockContainer.append($stockName);
     $stockContainer.append($stockHolding);
