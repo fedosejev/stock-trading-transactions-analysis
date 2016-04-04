@@ -100,7 +100,8 @@ form {
 .landing label {
   font-size: 30px;
   font-weight: normal;
-  vertical-align: middle; }
+  vertical-align: middle;
+  margin-bottom: 0; }
 
 .landing .radio-inline {
   margin-bottom: 40px;
