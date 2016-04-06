@@ -68,9 +68,6 @@ function renderOverallPerformance(overallPerformance, totalCommissions) {
 }
 
 function renderStock(stock) {
-
-  console.log(stock);
-
   var stockName = stock.symbol.split('.')[0];
   var stockResult = stock.overallResult;
 
