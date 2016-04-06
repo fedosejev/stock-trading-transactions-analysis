@@ -1,0 +1,70 @@
+.analysis {
+  display: none;
+
+  .overall-performance {
+    display: block;
+    margin: 50px 50px 0 50px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #ddd;
+
+    h2 {
+      font-weight: 600;
+      font-size: 25px;
+    }
+
+    .result {
+      font-weight: 200;
+      font-size: 40px;
+      margin-bottom: 0px;
+      margin-top: 10px;
+    }
+
+    .loss {
+      color: red;
+    }
+
+    .profit {
+      color: green;
+    }
+  }
+
+  sup {
+    vertical-align: text-top;
+  }
+
+  .currency {
+    font-size: 18px;
+    margin-right: 5px;
+    position: relative;
+    top: 10px;
+  }
+
+  .stock {
+    display: inline-block;
+    margin: 50px 50px 0 50px;
+
+    .stock-name {
+      font-weight: 600;
+      font-size: 25px;
+    }
+
+    .stock-result {
+      font-weight: 200;
+      font-size: 40px;
+      margin-bottom: 20px;
+      margin-top: 10px;
+
+      &.loss {
+        color: red;
+      }
+
+      &.profit {
+        color: green;
+      }
+
+      &.no-sell {
+        color: #777;
+      }
+    }
+  }
+}

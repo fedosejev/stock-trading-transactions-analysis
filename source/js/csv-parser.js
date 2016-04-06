@@ -1,5 +1,6 @@
+var Papa = require('papaparse');
+
 function convertCsvToJson(csv) {
-  // Parse CSV string
   var result = Papa.parse(csv, {
     delimiter: ",",
     header: true,

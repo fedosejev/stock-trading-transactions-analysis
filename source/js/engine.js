@@ -1,3 +1,5 @@
+var COMMISSION = require('../../config.json').commissionPaidPerTransaction;
+
 function calculateProfitsOrLossesForEachStock(stocks) {
 
   var overallSellOutcome = 0;
@@ -150,8 +152,10 @@ function calculateProfitsOrLossesForEachStock(stocks) {
     overallSellOutcome = overallSellOutcome + finalSellOutcome;
 
     stockSells.overallResult = finalSellOutcome.toFixed(2);
-    stocksSells.push(stockSells);
+    stockSells.commissions = stockTransactions.length * COMMISSION;
+    stockSells.overallResult = stockSells.overallResult - stockSells.commissions;
 
+    stocksSells.push(stockSells);
   });
 
   console.debug('\n\n=====================================================');

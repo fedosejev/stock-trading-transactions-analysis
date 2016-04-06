@@ -1,0 +1,73 @@
+.landing {
+  text-align: center;
+  text-shadow: 1px 1px 0px #555;
+  background: #fd746c; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #fd746c , #ff9068); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #fd746c , #ff9068); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */           
+  color: #fff;
+
+  h3 {
+    font-weight: 400;
+    margin: 0 0 40px 0;
+    font-size: 20px;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px dotted #fff;
+    padding-bottom: 5px;
+
+    :hover {
+        text-decoration: none;
+        border-bottom: 0;
+    }
+  }
+
+  h2 {
+    font-weight: 400;
+    margin: 0 0 40px 0;
+    font-size: 30px;
+  }
+
+  .logo {
+    display: inline-block;
+    font-size: 100px;
+    margin: 60px 0 40px 0;
+  }
+
+  form {
+    margin: 20px 0;
+  }
+
+  [type="radio"] {
+    margin-top: 12px;
+  }
+
+  label {
+    font-size: 30px;
+    font-weight: normal;
+    vertical-align: middle;
+    margin-bottom: 0;
+  }
+
+  select {
+    vertical-align: middle;
+  }
+
+  option {
+    font-size: 26px;
+    text-align: center;
+    padding: 5px;
+  }
+
+  .radio-inline {
+    margin-bottom: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    span {
+      padding-left: 5px;
+    }
+  }
+}

@@ -3,7 +3,7 @@ var csvParser = require('./csv-parser');
 var engine = require('./engine');
 
 var FILE_NAME = '';
-var COMMISSION = 5.95;
+var COMMISSION = require('../../config.json').commissionPaidPerTransaction;
 
 global.CURRENCY_SIGN = '£';
 
@@ -17,6 +17,7 @@ function handleFileContent(fileOnLoadEvent) {
   var json;
   var stocks;
   var sellOutcomes;
+  var overallPerformance;
 
   csv = csvParser.fixCsvStringProducedByXO(csv);
   json = csvParser.convertCsvToJson(csv);
@@ -29,11 +30,34 @@ function handleFileContent(fileOnLoadEvent) {
 
   sellOutcomes = engine.calculateProfitsOrLossesForEachStock(stocks);
 
-  sellOutcomes.forEach(function (result) {
-    renderStock(result);
-  });
+  sellOutcomes.forEach(renderStock);
 
-  console.log('!!! sellOutcomes: ' + sellOutcomes);
+  overallPerformance = sellOutcomes.reduce(function sumOutcomes(accumulator, currentValue) {
+    return parseFloat(accumulator) + parseFloat(currentValue.overallResult);
+  }, 0);
+
+  renderOverallPerformance(overallPerformance);
+}
+
+function renderOverallPerformance(overallPerformance) {
+  var $result;
+
+  var $container = $('<div class="overall-performance"></div>');
+  var $header = $('<h2>Overall Performance</h2>');
+  var $result;
+
+  if (overallPerformance > 0) {
+    $result = $('<div class="result profit"><sup class="currency">' + CURRENCY_SIGN + '</sup>' + parseFloat(overallPerformance).toLocaleString() + '</div>');
+  } else if (overallPerformance < 0) {
+    $result = $('<div class="result loss"><sup class="currency">' +  CURRENCY_SIGN + '</sup>' + parseFloat(overallPerformance).toLocaleString() + '</div>');
+  } else {
+    $result = $('<div class="result no-sell"><sup class="currency">' + CURRENCY_SIGN + '</sup>' + parseFloat(overallPerformance).toLocaleString() + '</div>');
+  }
+
+  $container.append($header);
+  $container.append($result);
+
+  $('[data-js-overall-performance]').append($container);
 }
 
 function renderStock(stock) {
@@ -55,15 +79,15 @@ function renderStock(stock) {
   $stockContainer.append($stockName);
   $stockContainer.append($stockResult);
 
-  $('[data-app]').append($stockContainer);
+  $('[data-js-section-analysis]').append($stockContainer);
 }
 
 function handleFileSelect(dropEvent) {
   dropEvent.stopPropagation();
   dropEvent.preventDefault();
 
-  $('[data-app]').html('');
-  $('body').removeClass('landing');
+  $('[data-js-section-landing]').hide();
+  $('[data-js-section-analysis]').show();
 
   var files = dropEvent.dataTransfer.files; // FileList object.
   var firstFile = files[0];
