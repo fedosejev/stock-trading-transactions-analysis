@@ -107,6 +107,8 @@ form {
   margin-bottom: 40px;
   margin-left: 10px;
   margin-right: 10px; }
+  .landing .radio-inline span {
+    padding-left: 5px; }
 
 select {
   vertical-align: middle; }
