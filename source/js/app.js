@@ -69,7 +69,7 @@ function renderOverallPerformance(overallPerformance, totalCommissions) {
 
 function renderStock(stock) {
   var stockName = stock.symbol.split('.')[0];
-  var stockResult = stock.overallResult;
+  var stockResult = stock.overallResult.toFixed(2);
 
   var $stockContainer = $('<div class="stock"></div>');
   var $stockName = $('<div class="stock-name">' + stockName + '</div>');
