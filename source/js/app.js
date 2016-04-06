@@ -18,6 +18,7 @@ function handleFileContent(fileOnLoadEvent) {
   var stocks;
   var sellOutcomes;
   var overallPerformance;
+  var totalCommissions;
 
   csv = csvParser.fixCsvStringProducedByXO(csv);
   json = csvParser.convertCsvToJson(csv);
@@ -36,15 +37,20 @@ function handleFileContent(fileOnLoadEvent) {
     return parseFloat(accumulator) + parseFloat(currentValue.overallResult);
   }, 0);
 
-  renderOverallPerformance(overallPerformance);
+  totalCommissions = sellOutcomes.reduce(function sumOutcomes(accumulator, currentValue) {
+    return parseFloat(accumulator) + parseFloat(currentValue.commissions);
+  }, 0);
+
+  renderOverallPerformance(overallPerformance, totalCommissions);
 }
 
-function renderOverallPerformance(overallPerformance) {
+function renderOverallPerformance(overallPerformance, totalCommissions) {
   var $result;
 
   var $container = $('<div class="overall-performance"></div>');
   var $header = $('<h2>Overall Performance</h2>');
   var $result;
+  var $commissions = $('<div class="commissions"><h6>Commissions</h6><p>' + CURRENCY_SIGN + totalCommissions.toFixed(2) + '</p></div>');
 
   if (overallPerformance > 0) {
     $result = $('<div class="result profit"><sup class="currency">' + CURRENCY_SIGN + '</sup>' + parseFloat(overallPerformance).toLocaleString() + '</div>');
@@ -56,17 +62,22 @@ function renderOverallPerformance(overallPerformance) {
 
   $container.append($header);
   $container.append($result);
+  $container.append($commissions);
 
   $('[data-js-overall-performance]').append($container);
 }
 
 function renderStock(stock) {
+
+  console.log(stock);
+
   var stockName = stock.symbol.split('.')[0];
   var stockResult = stock.overallResult;
 
   var $stockContainer = $('<div class="stock"></div>');
   var $stockName = $('<div class="stock-name">' + stockName + '</div>');
   var $stockResult;
+  var $commissions = $('<div class="commissions"><h6>Commissions</h6><p>' + CURRENCY_SIGN + stock.commissions + '</p></div>');
   
   if (stockResult > 0) {
     $stockResult = $('<div class="stock-result profit"><sup class="currency">' + CURRENCY_SIGN + '</sup>' + parseFloat(stockResult).toLocaleString() + '</div>');
@@ -78,6 +89,7 @@ function renderStock(stock) {
 
   $stockContainer.append($stockName);
   $stockContainer.append($stockResult);
+  $stockContainer.append($commissions);
 
   $('[data-js-section-analysis]').append($stockContainer);
 }

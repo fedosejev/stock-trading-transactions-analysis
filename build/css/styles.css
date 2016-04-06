@@ -103,6 +103,14 @@ footer {
     margin-right: 5px;
     position: relative;
     top: 10px; }
+  .analysis .commissions {
+    margin-bottom: 10px; }
+    .analysis .commissions h6 {
+      color: #777;
+      margin-bottom: 5px; }
+    .analysis .commissions p {
+      font-size: 16px;
+      font-weight: 200; }
   .analysis .stock {
     display: inline-block;
     margin: 50px 50px 0 50px; }
