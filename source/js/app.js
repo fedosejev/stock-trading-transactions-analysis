@@ -32,6 +32,8 @@ function handleFileContent(fileOnLoadEvent) {
   sellOutcomes.forEach(function (result) {
     renderStock(result);
   });
+
+  console.log('!!! sellOutcomes: ' + sellOutcomes);
 }
 
 function renderStock(stock) {

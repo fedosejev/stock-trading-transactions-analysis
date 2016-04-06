@@ -128,10 +128,16 @@ form {
   margin-bottom: 0;
 }
 
-.landing .radio-inline {
-  margin-bottom: 40px;
-  margin-left: 10px;
-  margin-right: 10px;
+.landing {
+  .radio-inline {
+    margin-bottom: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    span {
+      padding-left: 5px;
+    }
+  }
 }
 
 select {
