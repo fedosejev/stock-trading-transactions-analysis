@@ -10,7 +10,24 @@ body {
 a {
   color: #333; }
 
+html,
+body,
+section {
+  width: 100%;
+  height: 100%; }
+
+section {
+  display: inline-block; }
+
+footer {
+  margin-top: 40px;
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: 16px; }
+
 .landing {
+  text-align: center;
+  text-shadow: 1px 1px 0px #555;
   background: #fd746c;
   /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #fd746c, #ff9068);
@@ -18,111 +35,88 @@ a {
   background: linear-gradient(to left, #fd746c, #ff9068);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: #fff; }
+  .landing h3 {
+    font-weight: 400;
+    margin: 0 0 40px 0;
+    font-size: 20px; }
   .landing a {
-    color: #fff; }
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px dotted #fff;
+    padding-bottom: 5px; }
+    .landing a :hover {
+      text-decoration: none;
+      border-bottom: 0; }
+  .landing h2 {
+    font-weight: 400;
+    margin: 0 0 40px 0;
+    font-size: 30px; }
+  .landing .logo {
+    display: inline-block;
+    font-size: 100px;
+    margin: 60px 0 40px 0; }
+  .landing form {
+    margin: 20px 0; }
+  .landing [type="radio"] {
+    margin-top: 12px; }
+  .landing label {
+    font-size: 30px;
+    font-weight: normal;
+    vertical-align: middle;
+    margin-bottom: 0; }
+  .landing select {
+    vertical-align: middle; }
+  .landing option {
+    font-size: 26px;
+    text-align: center;
+    padding: 5px; }
+  .landing .radio-inline {
+    margin-bottom: 40px;
+    margin-left: 10px;
+    margin-right: 10px; }
+    .landing .radio-inline span {
+      padding-left: 5px; }
 
-.stock {
-  display: inline-block;
-  margin: 50px 50px 0 50px; }
-
-.stock-name {
-  font-weight: 600;
-  font-size: 25px; }
-
-.stock-holding {
-  font-weight: 300;
-  margin-top: 5px;
-  margin-bottom: 20px; }
-
-.stock-result {
-  font-weight: 200;
-  font-size: 40px;
-  margin-bottom: 20px;
-  margin-top: 10px; }
-
-.stock-commissions {
-  margin-bottom: 5px; }
-
-.stock-commissions small {
-  font-weight: 200; }
-
-.stock-maximum-price-per-share-paid small {
-  font-weight: 200; }
-
-.loss {
-  color: red; }
-
-.profit {
-  color: green; }
-
-.no-sell {
-  color: #777; }
-
-.currency {
-  font-size: 18px;
-  margin-right: 5px;
-  position: relative;
-  top: 10px; }
-
-.landing {
-  text-align: center;
-  text-shadow: 1px 1px 0px #555; }
-
-.landing .logo {
-  font-size: 100px;
-  margin: 60px 0 40px 0; }
-
-.landing h2 {
-  font-weight: 400;
-  margin: 0 0 40px 0;
-  font-size: 30px; }
-
-.landing h3 {
-  font-weight: 400;
-  margin: 0 0 40px 0;
-  font-size: 20px; }
-
-.landing a {
-  text-decoration: none;
-  border-bottom: 1px dotted #fff;
-  padding-bottom: 5px; }
-
-.landing a:hover {
-  text-decoration: none;
-  border-bottom: 0; }
-
-form {
-  margin: 20px 0; }
-
-.landing [type="radio"] {
-  margin-top: 12px; }
-
-.landing label {
-  font-size: 30px;
-  font-weight: normal;
-  vertical-align: middle;
-  margin-bottom: 0; }
-
-.landing .radio-inline {
-  margin-bottom: 40px;
-  margin-left: 10px;
-  margin-right: 10px; }
-  .landing .radio-inline span {
-    padding-left: 5px; }
-
-select {
-  vertical-align: middle; }
-
-option {
-  font-size: 26px;
-  text-align: center;
-  padding: 5px; }
-
-sup {
-  vertical-align: text-top; }
-
-footer {
-  margin-top: 40px;
-  margin-bottom: 50px;
-  text-align: center;
-  font-size: 16px; }
+.analysis {
+  display: none; }
+  .analysis .overall-performance {
+    display: block;
+    margin: 50px 50px 0 50px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #ddd; }
+    .analysis .overall-performance h2 {
+      font-weight: 600;
+      font-size: 25px; }
+    .analysis .overall-performance .result {
+      font-weight: 200;
+      font-size: 40px;
+      margin-bottom: 0px;
+      margin-top: 10px; }
+    .analysis .overall-performance .loss {
+      color: red; }
+    .analysis .overall-performance .profit {
+      color: green; }
+  .analysis sup {
+    vertical-align: text-top; }
+  .analysis .currency {
+    font-size: 18px;
+    margin-right: 5px;
+    position: relative;
+    top: 10px; }
+  .analysis .stock {
+    display: inline-block;
+    margin: 50px 50px 0 50px; }
+    .analysis .stock .stock-name {
+      font-weight: 600;
+      font-size: 25px; }
+    .analysis .stock .stock-result {
+      font-weight: 200;
+      font-size: 40px;
+      margin-bottom: 20px;
+      margin-top: 10px; }
+      .analysis .stock .stock-result.loss {
+        color: red; }
+      .analysis .stock .stock-result.profit {
+        color: green; }
+      .analysis .stock .stock-result.no-sell {
+        color: #777; }
