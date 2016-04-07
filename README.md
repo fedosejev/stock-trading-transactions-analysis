@@ -1,5 +1,7 @@
 # Stock trading transactions analysis
 
+Works great with [X-O.co.uk](http://x-o.co.uk).
+
 ## Live
 
 http://fedosejev.github.io/stock-trading-transactions-analysis
