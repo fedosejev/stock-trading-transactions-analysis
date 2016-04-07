@@ -1,5 +1,3 @@
-var COMMISSION = require('../../config.json').commissionPaidPerTransaction;
-
 function calculateProfitsOrLossesForEachStock(stocks) {
 
   var overallSellOutcome = 0;

@@ -3,8 +3,7 @@ var csvParser = require('./csv-parser');
 var engine = require('./engine');
 
 var FILE_NAME = '';
-var COMMISSION = require('../../config.json').commissionPaidPerTransaction;
-
+global.COMMISSION = 0;
 global.CURRENCY_SIGN = '£';
 
 $('[name="currency"]').on('change', function () {
@@ -94,6 +93,8 @@ function renderStock(stock) {
 function handleFileSelect(dropEvent) {
   dropEvent.stopPropagation();
   dropEvent.preventDefault();
+
+  COMMISSION = parseFloat($('[data-js-commission-paid-per-trade]').val());
 
   $('[data-js-section-landing]').hide();
   $('[data-js-section-analysis]').show();
