@@ -16,7 +16,8 @@ http://fedosejev.github.io/stock-trading-transactions-analysis
 
 ## Get sample spreadsheet
 
-[Google Sheets](https://docs.google.com/spreadsheets/d/18kStFA1T0U4DP6kAKOvRsQ_wp_3eDlDYhMtfiZtApEg/edit?usp=sharing)
++ [Google Sheets](https://docs.google.com/spreadsheets/d/18kStFA1T0U4DP6kAKOvRsQ_wp_3eDlDYhMtfiZtApEg/edit?usp=sharing)
++ [CSV](sample.csv)
 
 ## Author
 
