@@ -14,3 +14,7 @@ http://fedosejev.github.io/stock-trading-transactions-analysis
 4. `npm install`.
 5. `cd build && http-server`.
 6. Open `http://localhost:8080` in Google Chrome.
+
+## Author
+
+[Artemij Fedosejev](http://artemij.com)
