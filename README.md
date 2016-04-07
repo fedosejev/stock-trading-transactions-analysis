@@ -14,7 +14,7 @@ http://fedosejev.github.io/stock-trading-transactions-analysis
 4. Open `http://localhost:8080` in Google Chrome.
 5. Follow instructions on the landing page.
 
-## Get sample spreadsheet
+## Get sample data
 
 + [Google Sheets](https://docs.google.com/spreadsheets/d/18kStFA1T0U4DP6kAKOvRsQ_wp_3eDlDYhMtfiZtApEg/edit?usp=sharing)
 + [CSV](sample.csv)
