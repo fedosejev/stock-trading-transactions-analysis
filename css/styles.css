@@ -50,7 +50,7 @@ section {
   .landing .logo {
     display: inline-block;
     font-size: 100px;
-    margin: 20px 0 40px 0; }
+    margin: 10px 0 40px 0; }
   .landing form {
     margin: 20px 0; }
   .landing [type="radio"] {
