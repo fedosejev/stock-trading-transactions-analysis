@@ -70,6 +70,8 @@ section {
     padding: 5px; }
   .landing .form-inline {
     margin: 0 0 40px 0; }
+    .landing .form-inline .no-commissions-button {
+      margin-left: 5px; }
   .landing .radio-inline {
     margin-bottom: 40px;
     margin-left: 10px;
