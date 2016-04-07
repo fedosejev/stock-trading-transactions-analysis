@@ -1,13 +1,25 @@
 var Papa = require('papaparse');
 
 function convertCsvToJson(csv) {
+  csv = removeCommaFromNumbers(csv)
+  csv = removeDoubleQuoteCharacters(csv);
+  csv = csv.trim();
+
   var result = Papa.parse(csv, {
     delimiter: ",",
     header: true,
-    dynamicTyping: false
+    dynamicTyping: true
   });
 
   return result.data;
+}
+
+function removeCommaFromNumbers(csvString) {
+  return csvString.replace(/"(\d+),(\d+)/g, '"$1$2');
+}
+
+function removeDoubleQuoteCharacters(csvString) {
+  return csvString.replace(/(")+/g, '');
 }
 
 function fixCsvStringProducedByXO(csvString) {
@@ -55,19 +67,19 @@ function fixCsvStringProducedByXO(csvString) {
   return fixedCsv.join('');
 }
 
-function removeCommaFromTheNetAmount(transactions) {
-  // Convert 4,567.88 to 4567.88
-  return transactions.map(function (transaction) {
-    transaction['Net value'] = transaction['Net value'].replace(',', '');
-    return transaction;
-  });
-}
+// function removeCommaFromTheNetAmount(transactions) {
+//   // Convert 4,567.88 to 4567.88
+//   return transactions.map(function (transaction) {
+//     transaction['Net value'] = transaction['Net value'].replace(',', '');
+//     return transaction;
+//   });
+// }
 
-function cleanStocksTransactions(stocks) {
-  return stocks.map(function calculateForStock(stockTransactions) {
-    return removeCommaFromTheNetAmount(stockTransactions);
-  });
-}
+// function cleanStocksTransactions(stocks) {
+//   return stocks.map(function calculateForStock(stockTransactions) {
+//     return removeCommaFromTheNetAmount(stockTransactions);
+//   });
+// }
 
 function groupTradesByStock(trades) {
   var results = [];
@@ -93,8 +105,8 @@ function groupTradesByStock(trades) {
 
 module.exports = {
   convertCsvToJson: convertCsvToJson,
-  fixCsvStringProducedByXO: fixCsvStringProducedByXO,
-  removeCommaFromTheNetAmount: removeCommaFromTheNetAmount,
-  cleanStocksTransactions: cleanStocksTransactions,
+  //fixCsvStringProducedByXO: fixCsvStringProducedByXO,
+  //removeCommaFromTheNetAmount: removeCommaFromTheNetAmount,
+  //cleanStocksTransactions: cleanStocksTransactions,
   groupTradesByStock: groupTradesByStock
 };

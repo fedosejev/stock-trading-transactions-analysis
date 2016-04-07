@@ -20,14 +20,14 @@ function handleFileContent(fileOnLoadEvent) {
   var overallPerformance;
   var totalCommissions;
 
-  csv = csvParser.fixCsvStringProducedByXO(csv);
+  //csv = csvParser.fixCsvStringProducedByXO(csv);
   json = csvParser.convertCsvToJson(csv);
   stocks = csvParser.groupTradesByStock(json);
 
   console.log('Your stocks and transactions:');
   console.log(stocks);
 
-  stocks = csvParser.cleanStocksTransactions(stocks);
+  //stocks = csvParser.cleanStocksTransactions(stocks);
 
   sellOutcomes = engine.calculateProfitsOrLossesForEachStock(stocks);
 
