@@ -11,6 +11,11 @@ $('[name="currency"]').on('change', function () {
   global.CURRENCY_SIGN = currencySign;
 });
 
+$('[data-js-no-commissions]').on('click', function (event) {
+  event.preventDefault();
+  $('[data-js-commission-paid-per-trade]').val('0');
+});
+
 function handleFileContent(fileOnLoadEvent) {
   var csv = fileOnLoadEvent.target.result;
   var json;
