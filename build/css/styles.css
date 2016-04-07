@@ -78,6 +78,9 @@ section {
     margin-right: 10px; }
     .landing .radio-inline span {
       padding-left: 5px; }
+  .landing p {
+    font-size: 20px;
+    font-weight: 200; }
   .landing footer {
     margin-top: 40px;
     margin-bottom: 50px;
