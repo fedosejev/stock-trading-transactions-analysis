@@ -19,14 +19,7 @@ section {
 section {
   display: inline-block; }
 
-footer {
-  margin-top: 40px;
-  margin-bottom: 50px;
-  text-align: center;
-  font-size: 16px; }
-
-.landing {
-  text-align: center;
+.deprecated {
   text-shadow: 1px 1px 0px #555;
   background: #fd746c;
   /* fallback for old browsers */
@@ -35,16 +28,19 @@ footer {
   background: linear-gradient(to left, #fd746c, #ff9068);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: #fff; }
+
+.landing {
+  text-align: center; }
   .landing h3 {
-    font-weight: 400;
+    font-weight: 200;
     margin: 0 0 40px 0;
     font-size: 20px; }
   .landing a {
-    color: #fff;
+    color: #fd746c;
     text-decoration: none;
-    border-bottom: 1px dotted #fff;
+    border-bottom: 1px dotted #fd746c;
     padding-bottom: 5px; }
-    .landing a :hover {
+    .landing a:hover {
       text-decoration: none;
       border-bottom: 0; }
   .landing h2 {
@@ -76,6 +72,12 @@ footer {
     margin-right: 10px; }
     .landing .radio-inline span {
       padding-left: 5px; }
+  .landing footer {
+    margin-top: 40px;
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 200; }
 
 .analysis {
   display: none; }
