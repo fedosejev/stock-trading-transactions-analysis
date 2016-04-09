@@ -46,8 +46,10 @@ describe("Engine", function() {
       });
     });
 
-    describe("given invalid input", function(){
-      it("should throw an error");
+    describe("given invalid input", function() {
+      it("should throw an error", function() {
+        expect(engine.calculateProfitsOrLossesForEachStock).toThrow();
+      });
     });
 
   });
