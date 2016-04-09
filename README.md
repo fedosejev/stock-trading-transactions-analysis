@@ -17,6 +17,7 @@ http://fedosejev.github.io/stock-trading-transactions-analysis
 ## Build for development environment
 
 After changing source code you need to run the following command:
+
 1. `npm run build-for-development` or `npm run build`
 
 ## Get sample data
