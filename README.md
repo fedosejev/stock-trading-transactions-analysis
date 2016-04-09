@@ -14,6 +14,11 @@ http://fedosejev.github.io/stock-trading-transactions-analysis
 4. Open `http://localhost:8080` in Google Chrome.
 5. Follow instructions on the landing page.
 
+## Build for development environment
+
+After changing source code you need to run the following command:
+1. `npm run build-for-development` or `npm run build`
+
 ## Get sample data
 
 + [Google Sheets](https://docs.google.com/spreadsheets/d/18kStFA1T0U4DP6kAKOvRsQ_wp_3eDlDYhMtfiZtApEg/edit?usp=sharing)
