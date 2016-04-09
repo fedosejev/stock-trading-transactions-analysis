@@ -1,6 +1,7 @@
 var $ = require('jquery');
 var csvParser = require('./csv-parser');
-var engine = require('./engine');
+// var engine = require('./engine');
+var Engine = require('./engine');
 
 var FILE_NAME = '';
 global.COMMISSION = 0;
@@ -23,6 +24,7 @@ function handleFileContent(fileOnLoadEvent) {
   var sellOutcomes;
   var overallPerformance;
   var totalCommissions;
+  var engine = new Engine(CURRENCY_SIGN, COMMISSION);
 
   //csv = csvParser.fixCsvStringProducedByXO(csv);
   json = csvParser.convertCsvToJson(csv);
@@ -33,17 +35,13 @@ function handleFileContent(fileOnLoadEvent) {
 
   //stocks = csvParser.cleanStocksTransactions(stocks);
 
-  sellOutcomes = engine.calculateProfitsOrLossesForEachStock(stocks);
+  var profitLossCalculationResult = engine.calculateProfitsOrLossesForEachStock(stocks);
+
+  sellOutcomes = profitLossCalculationResult.stockSells    
+  overallPerformance = profitLossCalculationResult.overallSellOutcome;
+  totalCommissions = profitLossCalculationResult.totalCommissions
 
   sellOutcomes.forEach(renderStock);
-
-  overallPerformance = sellOutcomes.reduce(function sumOutcomes(accumulator, currentValue) {
-    return parseFloat(accumulator) + parseFloat(currentValue.overallResult);
-  }, 0);
-
-  totalCommissions = sellOutcomes.reduce(function sumOutcomes(accumulator, currentValue) {
-    return parseFloat(accumulator) + parseFloat(currentValue.commissions);
-  }, 0);
 
   renderOverallPerformance(overallPerformance, totalCommissions);
 }
