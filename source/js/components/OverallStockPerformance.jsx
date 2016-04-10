@@ -15,7 +15,7 @@ var OverallStockPerformance = React.createClass({
 
   render: function () {
     var overallPerformance = this.props.overallPerformance;
-    var totalCommissions = this.props.totalCommissions;
+    var totalCommissions = this.props.totalCommissions.toFixed(2);
     var overallPerformance = overallPerformance.toFixed(2);
     var currencySign = ConfigStore.getCurrency();
 

@@ -36,7 +36,6 @@
   },
   "dependencies": {
     "chartist": "^0.9.7",
-    "dygraphs": "^1.1.1",
     "flux": "^2.1.1",
     "node-uuid": "^1.4.7",
     "object-assign": "^4.0.1",
