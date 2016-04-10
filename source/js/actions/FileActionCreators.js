@@ -10,7 +10,8 @@ function calculateStockPerformances(stocks) {
 
     var engineConfig = {
       currencySign: ConfigStore.getCurrency(),
-      commissions: ConfigStore.getCommissions()
+      commissions: ConfigStore.getCommissions(),
+      dateFormat: ConfigStore.getDateFormat()
     };
 
     var stockPerformances = Engine.calculateProfitsOrLossesForEachStock(stocks, engineConfig);

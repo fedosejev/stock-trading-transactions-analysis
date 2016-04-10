@@ -61,7 +61,7 @@ section {
   .landing form {
     margin: 20px 0; }
   .landing [type="radio"] {
-    margin-top: 12px; }
+    margin-top: 14px; }
   .landing label {
     font-size: 30px;
     font-weight: normal;
@@ -84,7 +84,8 @@ section {
     margin-left: 10px;
     margin-right: 10px; }
     .landing .radio-inline span {
-      padding-left: 5px; }
+      padding-left: 5px;
+      font-weight: 200; }
   .landing p {
     font-size: 20px;
     font-weight: 200; }

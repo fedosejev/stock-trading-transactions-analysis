@@ -1,12 +1,30 @@
+var moment = require('moment');
+
 function calculateProfitsOrLossesForEachStock(stocks, config) {
 
   var currencySign = config.currencySign;
   var commissions = config.commissions;
+  var dateFormat = config.dateFormat;
 
   var overallSellOutcome = 0;
   var stocksSells = [];
 
   stocks.forEach(function calculateForStock(stockTransactions) {
+
+    stockTransactions = stockTransactions.sort(function sortDates(a, b) {
+      var date1 = moment(a['Date'], dateFormat);
+      var date2 = moment(b['Date'], dateFormat);
+
+      if (date1 < date2) {
+        return -1;
+      }
+      
+      if (date1 > date2) {
+        return 1;
+      }
+
+      return 0;
+    });
 
     var STOCK_SYMBOL = stockTransactions[0]['Stock code'];
 
