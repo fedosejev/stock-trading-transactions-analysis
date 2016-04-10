@@ -1,0 +1,16 @@
+[
+  {
+    "Date": "01/11/2015",
+    "Stock code": "TSLA",
+    "Type": "Bought",
+    "Quantity": "7",
+    "Net value": "982.22"
+  },
+  {
+    "Date": "01/12/2015",
+    "Stock code": "TSLA",
+    "Type": "Sold",
+    "Quantity": "7",
+    "Net value": "1289.25"
+  }
+]

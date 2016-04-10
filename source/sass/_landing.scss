@@ -1,11 +1,3 @@
-.deprecated {
-  text-shadow: 1px 1px 0px #555;
-  background: #fd746c; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #fd746c , #ff9068); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #fd746c , #ff9068); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */           
-  color: #fff;
-}
-
 .react-application-container {
   width: 100%;
   height: 100%;
@@ -13,6 +5,27 @@
 
 .landing {
   text-align: center;
+
+  small {
+    text-transform: uppercase;
+    font-size: 30px;
+  }
+
+  table {
+    font-size: 20px;
+    font-family: monospace;
+    text-align: left;
+    color: #333;
+    margin: 20px 0;
+
+    th {
+      font-weight: normal;
+    }
+
+    td {
+      font-size: 16px;
+    }
+  }
 
   h3 {
     font-weight: 200;

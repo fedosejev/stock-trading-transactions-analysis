@@ -1,6 +1,9 @@
 var React = require('react');
 var ConfigStore = require('../stores/ConfigStore');
 var ConfigActionCreators = require('../actions/ConfigActionCreators');
+var FileActionCreators = require('../actions/FileActionCreators');
+
+var SAMPLE_JSON_DATA = require('../../../sample.json');
 
 var Landing = React.createClass({
   getInitialState: function () {
@@ -20,6 +23,10 @@ var Landing = React.createClass({
 
   handleSetNoCommissions: function () {
     ConfigActionCreators.setCommissions(0);
+  },
+
+  handleAnalyseSampleData: function () {
+    FileActionCreators.analyseJsonData(SAMPLE_JSON_DATA);
   },
 
   componentDidMount: function () {
@@ -91,6 +98,40 @@ var Landing = React.createClass({
               <h2>3. <a href="https://docs.google.com/spreadsheets/d/18kStFA1T0U4DP6kAKOvRsQ_wp_3eDlDYhMtfiZtApEg/edit?usp=sharing" target="_blank">Copy our sample spreadsheet</a> and fill in your stock trades*.</h2>
 
               <h2>4. Download as CSV, and then drag and drop your CSV file here*.</h2>
+
+              <h2>Or see example of analysis for our sample data:</h2>
+
+              <div className="table-responsive">
+                <table className="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Stock code</th>
+                      <th>Type</th>
+                      <th>Quantity</th>
+                      <th>Net value</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>01/11/2015</td>
+                      <td>TSLA</td>
+                      <td>Bought</td>
+                      <td>7</td>
+                      <td>982.22</td>
+                    </tr>
+                    <tr>
+                      <td>01/12/2015</td>
+                      <td>TSLA</td>
+                      <td>Sold</td>
+                      <td>7</td>
+                      <td>1289.25</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <button className="btn btn-danger btn-lg" onClick={this.handleAnalyseSampleData}>Analyse data</button>
 
               <h3>This app calculates your profits and/or losses from stock trading. We do not save your data.</h3>
 

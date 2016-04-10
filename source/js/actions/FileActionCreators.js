@@ -58,6 +58,15 @@ function readFirstFile(files) {
     .catch(reportError);
 }
 
+function analyseJsonData(data) {
+  CsvParser
+    .groupTradesByStock(data)
+    .then(calculateStockPerformances)
+    .then(setStockTrades)
+    .catch(reportError);
+}
+
 module.exports = {
-  readFirstFile: readFirstFile
+  readFirstFile: readFirstFile,
+  analyseJsonData: analyseJsonData
 };
