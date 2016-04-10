@@ -3,7 +3,7 @@ var ConfigStore = require('../stores/ConfigStore');
 var StockTradesStore = require('../stores/StockTradesStore');
 var Engine = require('../engine');
 var Utilities = require('../utilities');
-var Chart = require('../chart');
+var ChartEngine = require('../chart');
 
 var OverallStockPerformanceGraph = React.createClass({
   
@@ -13,12 +13,15 @@ var OverallStockPerformanceGraph = React.createClass({
     var stockPerformancesNumbers = Utilities.getListOfStockPerformanceNumbers(stockPerformances);
     var currency = ConfigStore.getCurrency();
 
-    Chart.renderBarChart(stockSymbols, stockPerformancesNumbers, currency);
+    ChartEngine.renderBarChart(stockSymbols, stockPerformancesNumbers, currency);
   },
 
   render: function () {
     return (
-      <div className="overall-performance-graph" data-js-overall-performance-graph></div>
+      <div>
+        <div className="overall-performance-graph" data-js-overall-performance-graph></div>
+        <canvas id="myChart" width="400" height="400"></canvas>
+      </div>
     );
   }
 });

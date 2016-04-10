@@ -56,9 +56,6 @@ var Analysis = React.createClass({
           </div>
           <div className="row">
             <div className="col-sm-12">
-
-              <OverallStockPerformanceGraph />
-
             </div>
           </div>
         </div>
