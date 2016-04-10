@@ -46,14 +46,16 @@ var Analysis = React.createClass({
 
         <div className="overall-performance">
           <div className="row">
-            <div className="col-sm-5">
+            <div className="col-sm-12">
 
               <OverallStockPerformance 
                 overallPerformance={this.state.stockTrades.overallPerformance} 
                 totalCommissions={this.state.stockTrades.totalCommissions} />
 
             </div>
-            <div className="col-sm-7">
+          </div>
+          <div className="row">
+            <div className="col-sm-12">
 
               <OverallStockPerformanceGraph />
 
