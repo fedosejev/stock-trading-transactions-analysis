@@ -6,16 +6,19 @@ var htmlMinifier = require('gulp-html-minifier');
 var uglify = require('gulp-uglify');
 var sass = require('gulp-sass');
 var rename = require('gulp-rename');
+var reactify = require('reactify');
 
 gulp.task('build-js-for-development', function () {
-  return browserify('./source/js/app.js')
+  return browserify('./source/js/app.jsx')
+        .transform(reactify)
         .bundle()
         .pipe(vinylSourceStream('app.js'))
         .pipe(gulp.dest('./build/js/'));
 });
 
 gulp.task('build-js-for-production', function () {
-  return browserify('./source/js/app.js')
+  return browserify('./source/js/app.jsx')
+        .transform(reactify)
         .bundle()
         .pipe(vinylSourceStream('app.js'))
         .pipe(vinylBuffer())
@@ -49,6 +52,7 @@ gulp.task('build-html-for-production', function () {
 });
 
 gulp.task('watch-for-development', function () {
+  gulp.watch('./source/js/**/*.jsx', ['build-js-for-development']);
   gulp.watch('./source/js/**/*.js', ['build-js-for-development']);
   gulp.watch('./source/sass/**/*.scss', ['build-sass-for-development']);
   gulp.watch('./source/**/*.html', ['build-html-for-development']);
@@ -56,5 +60,8 @@ gulp.task('watch-for-development', function () {
 
 gulp.task('build-for-development', ['build-js-for-development', 'build-sass-for-development', 'build-html-for-development']);
 gulp.task('build-for-production', ['build-js-for-production', 'build-sass-for-production', 'build-html-for-production']);
+
+gulp.task('watch', ['build-for-development', 'watch-for-development']);
+gulp.task('build', ['watch-for-development']);
 
 gulp.task('default', ['watch-for-development', 'build-for-development']);

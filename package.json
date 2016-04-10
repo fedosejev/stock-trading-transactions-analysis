@@ -30,11 +30,19 @@
     "gulp-sass": "^2.1.1",
     "gulp-streamify": "0.0.5",
     "gulp-uglify": "^1.2.0",
+    "reactify": "^1.1.1",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
-    "jquery": "^2.2.0",
-    "papaparse": "^4.1.2"
+    "chartist": "^0.9.7",
+    "flux": "^2.1.1",
+    "node-uuid": "^1.4.7",
+    "object-assign": "^4.0.1",
+    "papaparse": "^4.1.2",
+    "react": "^0.14.0",
+    "react-chartist": "^0.10.1",
+    "react-dom": "^0.14.0",
+    "react-file-drag-and-drop": "^0.1.6"
   }
 }

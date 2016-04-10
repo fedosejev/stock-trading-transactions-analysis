@@ -1,5 +1,32 @@
 .analysis {
-  display: none;
+  margin-bottom: 50px;
+
+  a {
+    color: #333;
+    text-decoration: none;
+    padding-bottom: 5px;
+
+    &:hover {
+      color: #fd746c;
+      text-decoration: none;
+      border-bottom: 0;
+    }
+  }
+
+  footer {
+    display: block;
+    margin: 50px 50px 0 50px;
+    padding-top: 20px;
+    font-weight: 200;
+    font-size: 14px;
+    color: #aaa;
+    padding-bottom: 50px;
+    border-top: 1px solid #ddd;
+
+    a {
+      border-bottom: 1px dotted #333;
+    }
+  }
 
   .overall-performance {
     display: block;
@@ -7,24 +34,30 @@
     padding-bottom: 50px;
     border-bottom: 1px solid #ddd;
 
-    h2 {
-      font-weight: 600;
-      font-size: 25px;
+    .overall-performance-graph {
+      padding: 20px;
     }
 
-    .result {
-      font-weight: 200;
-      font-size: 40px;
-      margin-bottom: 0px;
-      margin-top: 10px;
-    }
+    .overall-performance-data {
+      h2 {
+        font-weight: 600;
+        font-size: 25px;
+      }
 
-    .loss {
-      color: red;
-    }
+      .result {
+        font-weight: 200;
+        font-size: 40px;
+        margin-bottom: 0px;
+        margin-top: 10px;
+      }
 
-    .profit {
-      color: green;
+      .loss {
+        color: red;
+      }
+
+      .profit {
+        color: green;
+      }
     }
   }
 

@@ -29,6 +29,10 @@ section {
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: #fff; }
 
+.react-application-container {
+  width: 100%;
+  height: 100%; }
+
 .landing {
   text-align: center; }
   .landing h3 {
@@ -89,23 +93,44 @@ section {
     font-weight: 200; }
 
 .analysis {
-  display: none; }
+  margin-bottom: 50px; }
+  .analysis a {
+    color: #333;
+    text-decoration: none;
+    padding-bottom: 5px; }
+    .analysis a:hover {
+      color: #fd746c;
+      text-decoration: none;
+      border-bottom: 0; }
+  .analysis footer {
+    display: block;
+    margin: 50px 50px 0 50px;
+    padding-top: 20px;
+    font-weight: 200;
+    font-size: 14px;
+    color: #aaa;
+    padding-bottom: 50px;
+    border-top: 1px solid #ddd; }
+    .analysis footer a {
+      border-bottom: 1px dotted #333; }
   .analysis .overall-performance {
     display: block;
     margin: 50px 50px 0 50px;
     padding-bottom: 50px;
     border-bottom: 1px solid #ddd; }
-    .analysis .overall-performance h2 {
+    .analysis .overall-performance .overall-performance-graph {
+      padding: 20px; }
+    .analysis .overall-performance .overall-performance-data h2 {
       font-weight: 600;
       font-size: 25px; }
-    .analysis .overall-performance .result {
+    .analysis .overall-performance .overall-performance-data .result {
       font-weight: 200;
       font-size: 40px;
       margin-bottom: 0px;
       margin-top: 10px; }
-    .analysis .overall-performance .loss {
+    .analysis .overall-performance .overall-performance-data .loss {
       color: red; }
-    .analysis .overall-performance .profit {
+    .analysis .overall-performance .overall-performance-data .profit {
       color: green; }
   .analysis sup {
     vertical-align: text-top; }

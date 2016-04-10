@@ -1,17 +1,26 @@
 var Papa = require('papaparse');
 
 function convertCsvToJson(csv) {
-  csv = removeCommaFromNumbers(csv)
-  csv = removeDoubleQuoteCharacters(csv);
-  csv = csv.trim();
+  return new Promise(function (resolve, reject) {
 
-  var result = Papa.parse(csv, {
-    delimiter: ",",
-    header: true,
-    dynamicTyping: true
+    csv = removeCommaFromNumbers(csv);
+    csv = removeDoubleQuoteCharacters(csv);
+    csv = csv.trim();
+
+    var results = Papa.parse(csv, {
+      delimiter: ",",
+      header: true,
+      dynamicTyping: true
+    });
+
+    if (results.errors.length > 0) {
+      reject(results.errors);
+      return;
+    }
+
+    resolve(results.data);
+
   });
-
-  return result.data;
 }
 
 function removeCommaFromNumbers(csvString) {
@@ -67,46 +76,33 @@ function fixCsvStringProducedByXO(csvString) {
   return fixedCsv.join('');
 }
 
-// function removeCommaFromTheNetAmount(transactions) {
-//   // Convert 4,567.88 to 4567.88
-//   return transactions.map(function (transaction) {
-//     transaction['Net value'] = transaction['Net value'].replace(',', '');
-//     return transaction;
-//   });
-// }
-
-// function cleanStocksTransactions(stocks) {
-//   return stocks.map(function calculateForStock(stockTransactions) {
-//     return removeCommaFromTheNetAmount(stockTransactions);
-//   });
-// }
-
 function groupTradesByStock(trades) {
-  var results = [];
-  var stocks = {};
-  var stock;
+  return new Promise(function (resolve, reject) {
 
-  trades.forEach(function (trade) {
-    stock = stocks[trade['Stock code']];
+    var results = [];
+    var stocks = {};
+    var stock;
 
-    if (stock) {
-      stock.push(trade);
-    } else {
-      stocks[trade['Stock code']] = [trade];
-    }
+    trades.forEach(function (trade) {
+      stock = stocks[trade['Stock code']];
+
+      if (stock) {
+        stock.push(trade);
+      } else {
+        stocks[trade['Stock code']] = [trade];
+      }
+    });
+
+    Object.keys(stocks).forEach(function (stockName) {
+      results.push(stocks[stockName]);
+    });
+
+    resolve(results);
+
   });
-
-  Object.keys(stocks).forEach(function (stockName) {
-    results.push(stocks[stockName]);
-  });
-
-  return results;
 }
 
 module.exports = {
   convertCsvToJson: convertCsvToJson,
-  //fixCsvStringProducedByXO: fixCsvStringProducedByXO,
-  //removeCommaFromTheNetAmount: removeCommaFromTheNetAmount,
-  //cleanStocksTransactions: cleanStocksTransactions,
   groupTradesByStock: groupTradesByStock
 };

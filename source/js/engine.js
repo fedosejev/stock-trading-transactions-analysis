@@ -1,4 +1,7 @@
-function calculateProfitsOrLossesForEachStock(stocks) {
+function calculateProfitsOrLossesForEachStock(stocks, config) {
+
+  var currencySign = config.currencySign;
+  var commissions = config.commissions;
 
   var overallSellOutcome = 0;
   var stocksSells = [];
@@ -136,12 +139,15 @@ function calculateProfitsOrLossesForEachStock(stocks) {
           date: transaction['Date'],
           result: finalSellOutcome
         });
+
+        console.log(stockSells);
+
       }
     });
 
     console.debug('\n------------------');
     if (sellTransactions.length > 0) {
-      console.debug('💰 Final result for ' +  STOCK_SYMBOL + ': ' + CURRENCY_SIGN + finalSellOutcome.toFixed(2));
+      console.debug('💰 Final result for ' +  STOCK_SYMBOL + ': ' + currencySign + finalSellOutcome.toFixed(2));
     } else {
       console.debug('💰 No final result for ' +  STOCK_SYMBOL + ', because you didn\'t sell ' +  STOCK_SYMBOL + ' yet.');
     }
@@ -150,19 +156,33 @@ function calculateProfitsOrLossesForEachStock(stocks) {
     overallSellOutcome = overallSellOutcome + finalSellOutcome;
 
     stockSells.overallResult = finalSellOutcome.toFixed(2);
-    stockSells.commissions = stockTransactions.length * COMMISSION;
+    stockSells.commissions = stockTransactions.length * commissions;
     stockSells.overallResult = stockSells.overallResult - stockSells.commissions;
 
     stocksSells.push(stockSells);
   });
 
   console.debug('\n\n=====================================================');
-  console.debug('💰💰💰 Your overall trading results: ' + CURRENCY_SIGN + overallSellOutcome.toFixed(2));
+  console.debug('💰💰💰 Your overall trading results: ' + currencySign + overallSellOutcome.toFixed(2));
   console.debug('=====================================================\n\n\n');
 
   return stocksSells;
 }
 
+function calculatePerformanceAcrossAllStocks(stockPerformances) {
+  return stockPerformances.reduce(function sumOutcomes(accumulator, currentValue) {
+    return parseFloat(accumulator) + parseFloat(currentValue.overallResult);
+  }, 0);
+}
+
+function calculateTotalCommissionsAcrossAllStocks(stockPerformances) {
+  return stockPerformances.reduce(function sumOutcomes(accumulator, currentValue) {
+    return parseFloat(accumulator) + parseFloat(currentValue.commissions);
+  }, 0);
+}
+
 module.exports = {
-  calculateProfitsOrLossesForEachStock: calculateProfitsOrLossesForEachStock
+  calculateProfitsOrLossesForEachStock: calculateProfitsOrLossesForEachStock,
+  calculatePerformanceAcrossAllStocks: calculatePerformanceAcrossAllStocks,
+  calculateTotalCommissionsAcrossAllStocks: calculateTotalCommissionsAcrossAllStocks
 };
