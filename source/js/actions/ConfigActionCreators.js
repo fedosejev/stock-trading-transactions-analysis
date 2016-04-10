@@ -18,7 +18,17 @@ function setCommissions(commissions) {
   Dispatcher.dispatch(action);
 }
 
+function setDateFormat(dateFormat) {
+  var action = {
+    type: 'set_date_format',
+    dateFormat: dateFormat
+  };
+
+  Dispatcher.dispatch(action);
+}
+
 module.exports = {
   setCurrency: setCurrency,
-  setCommissions: setCommissions
+  setCommissions: setCommissions,
+  setDateFormat: setDateFormat
 };

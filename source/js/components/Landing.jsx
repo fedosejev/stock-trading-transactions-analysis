@@ -9,12 +9,17 @@ var Landing = React.createClass({
   getInitialState: function () {
     return {
       currency: ConfigStore.getCurrency(),
-      commissions: ConfigStore.getCommissions()
+      commissions: ConfigStore.getCommissions(),
+      dateFormat: ConfigStore.getDateFormat(),
     };
   },
 
   handleCurrencyChange: function (event) {
     ConfigActionCreators.setCurrency(event.target.value);
+  },
+
+  handleDateFormatChange: function (event) {
+    ConfigActionCreators.setDateFormat(event.target.value);
   },
 
   handleCommissionsChange: function (event) {
@@ -40,7 +45,8 @@ var Landing = React.createClass({
   setConfig: function () {
     this.setState({
       currency: ConfigStore.getCurrency(),
-      commissions: ConfigStore.getCommissions()
+      commissions: ConfigStore.getCommissions(),
+      dateFormat: ConfigStore.getDateFormat(),
     });
   },
 
@@ -86,7 +92,22 @@ var Landing = React.createClass({
                 </label>
               </div>
 
-              <h2>2. Set commission paid per trade:</h2>
+              <h2>2. Choose date format:</h2>
+
+              <div className="radio-inline">
+                <label>
+                  <input type="radio" name="dateFormat" id="dateFormatOption1" value="MM/DD/YYYY" checked={this.state.dateFormat === 'MM/DD/YYYY' ? true : false} onChange={this.handleDateFormatChange} />
+                  <span>US (12/31/2016)</span>
+                </label>
+              </div>
+              <div className="radio-inline">
+                <label>
+                  <input type="radio" name="dateFormat" id="dateFormatOption2" value="DD/MM/YYYY" checked={this.state.dateFormat === 'DD/MM/YYYY' ? true : false} onChange={this.handleDateFormatChange} />
+                  <span>UK (31/12/2016)</span>
+                </label>
+              </div>
+
+              <h2>3. Set commission paid per trade:</h2>
 
               <form className="form-inline">
                 <div className="form-group">
@@ -95,9 +116,9 @@ var Landing = React.createClass({
                 </div>
               </form>
 
-              <h2>3. <a href="https://docs.google.com/spreadsheets/d/18kStFA1T0U4DP6kAKOvRsQ_wp_3eDlDYhMtfiZtApEg/edit?usp=sharing" target="_blank">Copy our sample spreadsheet</a> and fill in your stock trades*.</h2>
+              <h2>4. <a href="https://docs.google.com/spreadsheets/d/18kStFA1T0U4DP6kAKOvRsQ_wp_3eDlDYhMtfiZtApEg/edit?usp=sharing" target="_blank">Copy our sample spreadsheet</a> and fill in your stock trades*.</h2>
 
-              <h2>4. Download as CSV, and then drag and drop your CSV file here*.</h2>
+              <h2>5. Download as CSV, and then drag and drop your CSV file here*.</h2>
 
               <h2>Or see example of analysis for our sample data:</h2>
 

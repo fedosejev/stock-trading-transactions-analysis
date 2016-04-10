@@ -4,6 +4,7 @@ var objectAssign = require('object-assign');
 
 var currency = '£';
 var commissions = 5.95;
+var dateFormat = 'DD/MM/YYYY';
 
 function setCurrency(thatCurrency) {
   currency = thatCurrency;
@@ -17,6 +18,12 @@ function setCommissions(payCommissions) {
   StockTradesStore.emit('change');
 }
 
+function setDateFormat(format) {
+  dateFormat = format;
+
+  StockTradesStore.emit('change');
+}
+
 var StockTradesStore = objectAssign({}, EventEmitter.prototype, {
   
   getCurrency: function () {
@@ -25,7 +32,11 @@ var StockTradesStore = objectAssign({}, EventEmitter.prototype, {
 
   getCommissions: function () {
     return commissions;
-  },  
+  },
+
+  getDateFormat: function () {
+    return dateFormat;
+  },
 
   addChangeListener: function (changeEventHandler) {
     this.on('change', changeEventHandler);
@@ -45,6 +56,10 @@ function handleAction(action) {
   } else if (action.type === 'set_commissions') {
 
     setCommissions(action.commissions);
+
+  } else if (action.type === 'set_date_format') {
+
+    setDateFormat(action.dateFormat);
 
   }
 }
