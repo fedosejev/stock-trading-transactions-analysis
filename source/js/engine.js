@@ -29,7 +29,7 @@ function calculateProfitsOrLossesForEachStock(stocks, config) {
     stockTransactions.forEach(function calculateForTransaction(transaction) {
       if (transaction['Type'] === 'Bought') {
 
-        console.log('=== Bought ===');
+        console.log('=== Bought on ' + transaction['Date'] + ' ===');
 
         var netValuePaid = parseFloat(transaction['Net value']);
         var quantityBought = parseInt(transaction['Quantity']);
@@ -48,7 +48,7 @@ function calculateProfitsOrLossesForEachStock(stocks, config) {
 
       } else if (transaction['Type'] === 'Sold') {
 
-        console.log('=== Sold ===');
+        console.log('=== Sold on ' + transaction['Date'] + ' ===');
 
         var netValuePaid = parseFloat(transaction['Net value']);
         var quantityBought = parseInt(transaction['Quantity']);
