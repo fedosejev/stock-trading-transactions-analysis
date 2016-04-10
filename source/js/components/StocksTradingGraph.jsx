@@ -7,7 +7,7 @@ var Chart = require('../chart');
 
 var Dygraphs = require('dygraphs');
 
-var OverallStockPerformanceGraph = React.createClass({
+var StocksTradingGraph = React.createClass({
   
   componentDidMount: function () {
     var stockPerformances = StockTradesStore.getStockTrades().stockPerformances;
@@ -15,19 +15,25 @@ var OverallStockPerformanceGraph = React.createClass({
     var stockPerformancesNumbers = Utilities.getListOfStockPerformanceNumbers(stockPerformances);
     var currency = ConfigStore.getCurrency();
 
-    Chart.renderBarChart(stockSymbols, stockPerformancesNumbers, currency);
+    Chart.renderLineChart(stockSymbols, stockPerformancesNumbers, currency);
 
-    var graph = new Dygraph(document.querySelector('[data-js-overall-trading-graph]'), csv);
+  //   var graph = new Dygraph(document.querySelector('[]'),
+
+  //   // CSV or path to a CSV file.
+  //   "Date,Temperature\n" +
+  //   "2008-05-07,75\n" +
+  //   "2008-05-08,70\n" +
+  //   "2008-05-09,80\n"
+
+  // );
   },
 
   render: function () {
     return (
-      <div>
-        <div className="overall-performance-graph" data-js-overall-performance-graph></div>
-        <div className="overall-performance-graph" data-js-overall-trading-graph></div>
-      </div>
+      <div className="stocks-trading-graph" data-js-stocks-trading-graph></div>
+      <div className="stocks-trading-graph" data-js-stocks-trading-graph></div>
     );
   }
 });
 
-module.exports = OverallStockPerformanceGraph;
+module.exports = StocksTradingGraph;
