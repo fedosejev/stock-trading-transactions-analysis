@@ -36,7 +36,9 @@ function renderBarChart(stockSymbols, stockPerformancesNumbers, currency) {
 
         return currency + label;
       },
-      labelOffset: {},
+      labelOffset: {
+        x: -10
+      },
       position: 'start'
     }
   };
