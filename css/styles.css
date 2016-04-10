@@ -155,7 +155,8 @@ section {
       font-weight: 200; }
   .analysis .stock {
     display: inline-block;
-    margin: 50px 50px 0 50px; }
+    margin: 50px 50px 0 50px;
+    width: 150px; }
     .analysis .stock .stock-name {
       font-weight: 600;
       font-size: 25px; }
