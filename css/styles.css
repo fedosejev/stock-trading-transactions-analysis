@@ -120,6 +120,8 @@ section {
     border-bottom: 1px solid #ddd; }
     .analysis .overall-performance .overall-performance-graph {
       padding: 20px; }
+      .analysis .overall-performance .overall-performance-graph .ct-label {
+        font-size: 12px; }
     .analysis .overall-performance .overall-performance-data h2 {
       font-weight: 600;
       font-size: 25px; }
