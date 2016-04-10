@@ -131,7 +131,7 @@ var Landing = React.createClass({
                 </table>
               </div>
 
-              <button className="btn btn-danger btn-lg" onClick={this.handleAnalyseSampleData}>Analyse data</button>
+              <button className="btn btn-danger btn-lg" onClick={this.handleAnalyseSampleData}>Analyse sample data</button>
 
               <h3>This app calculates your profits and/or losses from stock trading. We do not save your data.</h3>
 
