@@ -21,6 +21,7 @@ var StockPerformance = React.createClass({
     var stockCommissions = stock.commissions.toFixed(2);
     var sharesHolding = stock.sharesHolding;
     var currencySign = ConfigStore.getCurrency();
+    var payCommissions = (ConfigStore.getCommissions() > 0);
 
     return (
       <div className="stock">
@@ -31,11 +32,15 @@ var StockPerformance = React.createClass({
           <sup className="currency">{currencySign}</sup>
           {parseFloat(stockResult).toLocaleString()}
         </div>
-        <div className="commissions">
-          <h6>Commissions</h6>
-          <p>{currencySign + stockCommissions}</p>
-        </div>
-        <div className="commissions">
+
+        { payCommissions ? 
+          <div className="commissions">
+            <h6>Commissions</h6>
+            <p>{currencySign + stockCommissions}</p>
+          </div>
+        : null }
+
+        <div className="shares-holding">
           <h6>Shares holding</h6>
           <p>{sharesHolding}</p>
         </div>

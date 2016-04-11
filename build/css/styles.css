@@ -145,12 +145,15 @@ section {
     margin-right: 5px;
     position: relative;
     top: 10px; }
-  .analysis .commissions {
+  .analysis .commissions,
+  .analysis .shares-holding {
     margin-bottom: 20px; }
-    .analysis .commissions h6 {
+    .analysis .commissions h6,
+    .analysis .shares-holding h6 {
       color: #777;
       margin-bottom: 5px; }
-    .analysis .commissions p {
+    .analysis .commissions p,
+    .analysis .shares-holding p {
       font-size: 16px;
       font-weight: 200; }
   .analysis .stock {

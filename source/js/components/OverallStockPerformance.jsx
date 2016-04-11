@@ -18,6 +18,7 @@ var OverallStockPerformance = React.createClass({
     var totalCommissions = this.props.totalCommissions.toFixed(2);
     var overallPerformance = overallPerformance.toFixed(2);
     var currencySign = ConfigStore.getCurrency();
+    var payCommissions = (ConfigStore.getCommissions() > 0);
 
     return (
       <div className="overall-performance-data">
@@ -26,10 +27,14 @@ var OverallStockPerformance = React.createClass({
           <sup className="currency">{currencySign}</sup>
           {parseFloat(overallPerformance).toLocaleString()}
         </div>
+
+        { payCommissions ? 
         <div className="commissions">
           <h6>Commissions</h6>
           <p>{currencySign + totalCommissions}</p>
         </div>
+        : null }
+        
       </div>
     );
   }
