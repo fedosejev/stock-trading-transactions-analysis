@@ -163,6 +163,14 @@ function calculateProfitsOrLossesForEachStock(stocks, config) {
       }
     });
 
+    /*
+      If you didn't sell or sold for what you bought it for, 
+      then you have losses, because of commissions you paid.
+    */
+    if (finalSellOutcome === 0 && commissions > 0) {
+      finalSellOutcome = -(stockTransactions.length * commissions);
+    }
+
     console.debug('\n------------------');
     if (sellTransactions.length > 0) {
       console.debug('💰 Final result for ' +  STOCK_SYMBOL + ': ' + currencySign + finalSellOutcome.toFixed(2));
@@ -173,9 +181,8 @@ function calculateProfitsOrLossesForEachStock(stocks, config) {
 
     overallSellOutcome = overallSellOutcome + finalSellOutcome;
 
-    stockSells.overallResult = finalSellOutcome.toFixed(2);
+    stockSells.overallResult = finalSellOutcome;
     stockSells.commissions = stockTransactions.length * commissions;
-    stockSells.overallResult = stockSells.overallResult - stockSells.commissions;
 
     stocksSells.push(stockSells);
   });
