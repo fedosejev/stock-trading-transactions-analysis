@@ -15,9 +15,11 @@ var StockPerformance = React.createClass({
 
   render: function () {
     var stock = this.props.stockPerformance;
+
     var stockName = stock.symbol.split('.')[0];
     var stockResult = stock.overallResult.toFixed(2);
     var stockCommissions = stock.commissions.toFixed(2);
+    var sharesHolding = stock.sharesHolding;
     var currencySign = ConfigStore.getCurrency();
 
     return (
@@ -29,7 +31,14 @@ var StockPerformance = React.createClass({
           <sup className="currency">{currencySign}</sup>
           {parseFloat(stockResult).toLocaleString()}
         </div>
-        <div className="commissions"><h6>Commissions</h6><p>{currencySign + stockCommissions}</p></div>
+        <div className="commissions">
+          <h6>Commissions</h6>
+          <p>{currencySign + stockCommissions}</p>
+        </div>
+        <div className="commissions">
+          <h6>Shares holding</h6>
+          <p>{sharesHolding}</p>
+        </div>
       </div>
     );
   }

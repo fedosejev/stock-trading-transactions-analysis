@@ -42,6 +42,9 @@ function calculateProfitsOrLossesForEachStock(stocks, config) {
     var buyTransactions = [];
     var sellTransactions = [];
 
+    var totalNumberOfSharesBoughtForThisStock = 0;
+    var totalNumberOfSharesSoldForThisStock = 0;
+
     var finalSellOutcome = 0;
 
     stockTransactions.forEach(function calculateForTransaction(transaction) {
@@ -64,17 +67,19 @@ function calculateProfitsOrLossesForEachStock(stocks, config) {
 
         buyTransactions.push(boughtTransaction);
 
+        totalNumberOfSharesBoughtForThisStock = totalNumberOfSharesBoughtForThisStock + quantityBought;
+
       } else if (transaction['Type'] === 'Sold') {
 
         console.log('=== Sold on ' + transaction['Date'] + ' ===');
 
         var netValuePaid = parseFloat(transaction['Net value']);
-        var quantityBought = parseInt(transaction['Quantity']);
-        var pricePaidPerShare = netValuePaid / quantityBought;
+        var quantitySold = parseInt(transaction['Quantity']);
+        var pricePaidPerShare = netValuePaid / quantitySold;
 
         var soldTransaction = {
           netValuePaid: netValuePaid,
-          numberOfShares: quantityBought,
+          numberOfShares: quantitySold,
           pricePaidPerShare: pricePaidPerShare,
           date: transaction['Date']
         };
@@ -82,6 +87,8 @@ function calculateProfitsOrLossesForEachStock(stocks, config) {
         console.log(soldTransaction);
 
         sellTransactions.push(soldTransaction);
+
+        totalNumberOfSharesSoldForThisStock = totalNumberOfSharesSoldForThisStock + quantitySold;
 
         buyTransactions.sort(function compare(a, b) {
           if (a.pricePaidPerShare < b.pricePaidPerShare) {
@@ -183,6 +190,7 @@ function calculateProfitsOrLossesForEachStock(stocks, config) {
 
     stockSells.overallResult = finalSellOutcome;
     stockSells.commissions = stockTransactions.length * commissions;
+    stockSells.sharesHolding = totalNumberOfSharesBoughtForThisStock - totalNumberOfSharesSoldForThisStock;
 
     stocksSells.push(stockSells);
   });
