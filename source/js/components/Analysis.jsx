@@ -28,7 +28,6 @@ var Analysis = React.createClass({
   },
 
   createStockPerformanceElements: function () {
-    console.log(this.state.stockTrades);
     if (typeof this.state.stockTrades.stockPerformances !== 'undefined') {
       return this.state.stockTrades.stockPerformances.map(this.createStockPerformanceElement);
     }
