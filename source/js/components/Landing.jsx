@@ -57,7 +57,10 @@ var Landing = React.createClass({
           <div className="col-sm-12">
 
             <section className="landing">
-              <div className="logo"><i className="fa fa-line-chart"></i></div>
+
+              <div className="logo">
+                <webicon icon="color-icons:bullish"></webicon>
+              </div>
                
               <h2>1. Choose your currency:</h2>
 

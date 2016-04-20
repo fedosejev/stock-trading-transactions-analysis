@@ -34,14 +34,23 @@
   }
 
   a {
-    color: #fd746c;
+    color: #388E3C;
     text-decoration: none;
-    border-bottom: 1px dotted #fd746c;
+    border-bottom: 1px dotted #388E3C;
     padding-bottom: 5px;
 
     &:hover {
       text-decoration: none;
       border-bottom: 0;
+    }
+  }
+
+  .btn-danger {
+    background-color: #4CAF50;
+    border-color: #388E3C;
+
+    &:hover {
+      background-color: #388E3C;
     }
   }
 
@@ -54,7 +63,11 @@
   .logo {
     display: inline-block;
     font-size: 100px;
-    margin: 10px 0 40px 0;
+    margin: 40px 0 0 0;
+
+    .webicon {
+      width: 180px;
+    }
   }
 
   form {
