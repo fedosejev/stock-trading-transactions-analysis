@@ -30,7 +30,7 @@ function adapt(alienData) {
     Date = created_at
     Stock code = symbol
     Type = side
-    Quantity = cumulative_quantity
+    Quantity = quantity
     Net value = price * quantity
 
   */
@@ -45,7 +45,7 @@ function adapt(alienData) {
         'Date': convertDate(alienDataObject.created_at),
         'Stock code': alienDataObject.symbol,
         'Type': convertType(alienDataObject.side),
-        'Quantity': alienDataObject.cumulative_quantity,
+        'Quantity': alienDataObject.quantity,
         'Net value': alienDataObject.price * alienDataObject.quantity
       };
     });
