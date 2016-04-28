@@ -27,6 +27,8 @@ section {
   text-align: center; }
   .landing h1 {
     margin: 0 0 40px 0; }
+  .landing strong {
+    font-weight: 400; }
   .landing h2 {
     font-weight: 400;
     font-size: 26px; }
