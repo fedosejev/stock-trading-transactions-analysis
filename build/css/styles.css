@@ -72,9 +72,9 @@ section {
   .landing .logo {
     display: inline-block;
     font-size: 100px;
-    margin: 10px 0 0 0; }
+    margin: 40px 0 0 0; }
     .landing .logo .webicon {
-      width: 180px; }
+      width: 150px; }
   .landing form {
     margin: 20px 0; }
   .landing [type="radio"] {
