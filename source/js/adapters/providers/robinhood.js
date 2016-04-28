@@ -14,20 +14,6 @@ function convertDate(alienDate) {
 }
 
 function adapt(alienData) {
-  var adaptedData = 
-    alienData
-    .filter(function filterCumulativeQuantityGreaterThanZero(alienDataObject) {
-      return alienDataObject.cumulative_quantity > 0;
-    })
-    .map(function adaptDataObject(alienDataObject) {
-      return {
-        'Date': convertDate(alienDataObject.created_at),
-        'Stock code': alienDataObject.symbol,
-        'Type': convertType(alienDataObject.side),
-        'Quantity': alienDataObject.cumulative_quantity,
-        'Net value': alienDataObject.price * alienDataObject.quantity
-      };
-    });
 
   /*
 
@@ -48,12 +34,21 @@ function adapt(alienData) {
     Net value = price * quantity
 
   */
-
-  console.log('Alien data:');
-  console.log(alienData);
-
-  console.log('Adapted data:');
-  console.log(adaptedData);
+  
+  var adaptedData = 
+    alienData
+    .filter(function filterCumulativeQuantityGreaterThanZero(alienDataObject) {
+      return alienDataObject.cumulative_quantity > 0;
+    })
+    .map(function adaptDataObject(alienDataObject) {
+      return {
+        'Date': convertDate(alienDataObject.created_at),
+        'Stock code': alienDataObject.symbol,
+        'Type': convertType(alienDataObject.side),
+        'Quantity': alienDataObject.cumulative_quantity,
+        'Net value': alienDataObject.price * alienDataObject.quantity
+      };
+    });
 
   return adaptedData;
 }
