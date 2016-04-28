@@ -13,7 +13,7 @@ var Landing = React.createClass({
                 <webicon icon="color-icons:bullish"></webicon>
               </div>
 
-              <h1>Stock trading using <a href="https://www.robinhood.com" target="_blank">Robinhood app</a>? See your performance!</h1>
+              <h1>Stock trading using <a href="https://www.robinhood.com" target="_blank">Robinhood app</a>? See your results!</h1>
 
               <h2 className="how-to-use">Drag and drop your CSV file exported from the Robinhood app here.</h2>
 
