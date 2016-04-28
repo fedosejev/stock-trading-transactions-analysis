@@ -20,9 +20,6 @@ function calculateStockPerformances(stocks) {
     
     stockPerformances = Utilities.setUuidForEachStockPerformance(stockPerformances);
 
-    console.log('stockPerformances:');
-    console.log(stockPerformances);
-
     resolve({
       stockPerformances: stockPerformances,
       overallPerformance: overallPerformance,
