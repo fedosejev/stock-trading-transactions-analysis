@@ -36,11 +36,7 @@ function adapt(alienData) {
   */
   
   var adaptedData = 
-    alienData
-    .filter(function filterCumulativeQuantityGreaterThanZero(alienDataObject) {
-      return alienDataObject.cumulative_quantity > 0;
-    })
-    .map(function adaptDataObject(alienDataObject) {
+    alienData.map(function adaptDataObject(alienDataObject) {
       return {
         'Date': convertDate(alienDataObject.created_at),
         'Stock code': alienDataObject.symbol,

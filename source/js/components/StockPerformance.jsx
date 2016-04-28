@@ -35,7 +35,7 @@ var StockPerformance = React.createClass({
 
         { payCommissions ? 
           <div className="commissions">
-            <h6>Commissions</h6>
+            <h6>Included commissions</h6>
             <p>{currencySign + stockCommissions}</p>
           </div>
         : null }
