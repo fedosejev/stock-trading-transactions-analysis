@@ -5,9 +5,6 @@ function convertCsvToJson(csv) {
   return new Promise(function (resolve, reject) {
 
     csv = removeCommaBeforeNewLineCharacter(csv);
-
-    console.log(csv);
-
     csv = removeCommaFromNumbers(csv);
     csv = removeDoubleQuoteCharacters(csv);
     csv = csv.trim();
