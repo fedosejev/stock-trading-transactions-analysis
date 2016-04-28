@@ -43,7 +43,7 @@ var Analysis = React.createClass({
     return (
       <div className="container analysis">
 
-        <div className="corrupted-csv-data">Looks like your data is corrupted. Please check if your CSV file is accurate.</div>
+        {StockTradesStore.getIsCorruptedCsvData() ? <div className="corrupted-csv-data">Looks like your CSV data is corrupted - please check your CSV file.</div> : null}
 
         <div className="overall-performance">
           <div className="row">

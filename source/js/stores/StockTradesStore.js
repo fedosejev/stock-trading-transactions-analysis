@@ -4,6 +4,7 @@ var objectAssign = require('object-assign');
 var Engine = require('../engine');
 
 var stockTrades = [];
+var isCorruptedCsvData = false;
 
 function setStockTrades(stocks) {
   if (typeof stocks.stockPerformances !== 'undefined') {
@@ -12,10 +13,18 @@ function setStockTrades(stocks) {
   }
 }
 
+function setCorruptedCsvData() {
+  isCorruptedCsvData = true;
+}
+
 var StockTradesStore = objectAssign({}, EventEmitter.prototype, {
   
   getStockTrades: function () {
     return stockTrades;
+  },
+
+  getIsCorruptedCsvData: function () {
+    return isCorruptedCsvData;
   },
 
   addChangeListener: function (changeEventHandler) {
@@ -33,6 +42,10 @@ function handleAction(action) {
 
     setStockTrades(action.stockTrades);
   
+  } else if (action.type === 'set_is_corrupted_csv_data') {
+
+    setCorruptedCsvData();
+
   }
 }
 

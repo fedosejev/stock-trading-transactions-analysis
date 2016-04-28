@@ -4,10 +4,10 @@ var adapter = require('./adapters/adapter');
 function convertCsvToJson(csv) {
   return new Promise(function (resolve, reject) {
 
-    csv = removeCommaBeforeNewLineCharacter(csv);
-    csv = removeCommaFromNumbers(csv);
-    csv = removeDoubleQuoteCharacters(csv);
-    csv = csv.trim();
+    csv = removeCommaBeforeNewLineCharacter(csv); // Robinhood
+    csv = removeCommaFromNumbers(csv); // X-O
+    csv = removeDoubleQuoteCharacters(csv); // X-O
+    csv = csv.trim(); // General
 
     var results = Papa.parse(csv, {
       delimiter: ",",

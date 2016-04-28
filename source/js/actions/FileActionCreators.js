@@ -4,6 +4,7 @@ var CsvParser = require('../csv-parser');
 var Engine = require('../engine');
 var Utilities = require('../utilities');
 var ConfigStore = require('../stores/ConfigStore');
+var FileActionCreators = require('../actions/FileActionCreators');
 
 function calculateStockPerformances(stocks) {
   return new Promise(function (resolve, reject) {
@@ -20,6 +21,14 @@ function calculateStockPerformances(stocks) {
     
     stockPerformances = Utilities.setUuidForEachStockPerformance(stockPerformances);
 
+    var isCorruptedCsvData = ! stockPerformances.every(function isNumberOfSharesHoldingNotNegative(stockPerformance) {
+      return (stockPerformance.sharesHolding >= 0);
+    });
+
+    if (isCorruptedCsvData) {
+      setIsCorruptedCsvData();
+    }
+
     resolve({
       stockPerformances: stockPerformances,
       overallPerformance: overallPerformance,
@@ -33,6 +42,14 @@ function setStockTrades(stockTrades) {
   var action = {
     type: 'set_stock_trades',
     stockTrades: stockTrades
+  };
+
+  Dispatcher.dispatch(action);
+}
+
+function setIsCorruptedCsvData() {
+  var action = {
+    type: 'set_is_corrupted_csv_data'
   };
 
   Dispatcher.dispatch(action);
@@ -69,5 +86,6 @@ function analyseJsonData(data) {
 
 module.exports = {
   readFirstFile: readFirstFile,
-  analyseJsonData: analyseJsonData
+  analyseJsonData: analyseJsonData,
+  setIsCorruptedCsvData: setIsCorruptedCsvData
 };
