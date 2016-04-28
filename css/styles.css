@@ -25,6 +25,17 @@ section {
 
 .landing {
   text-align: center; }
+  .landing h1 {
+    margin: 0 0 40px 0; }
+  .landing h2 {
+    font-weight: 400;
+    font-size: 26px; }
+    .landing h2.how-to-use {
+      display: inline-block;
+      border: 1px dashed #999;
+      padding: 30px;
+      border-radius: 20px;
+      font-weight: 200; }
   .landing small {
     text-transform: uppercase;
     font-size: 30px; }
@@ -55,14 +66,10 @@ section {
     border-color: #388E3C; }
     .landing .btn-danger:hover {
       background-color: #388E3C; }
-  .landing h2 {
-    font-weight: 400;
-    margin: 0 0 30px 0;
-    font-size: 30px; }
   .landing .logo {
     display: inline-block;
     font-size: 100px;
-    margin: 40px 0 0 0; }
+    margin: 10px 0 0 0; }
     .landing .logo .webicon {
       width: 180px; }
   .landing form {
@@ -124,6 +131,10 @@ section {
     border-top: 1px solid #ddd; }
     .analysis footer a {
       border-bottom: 1px dotted #333; }
+    .analysis footer p {
+      margin: 0 0 20px 0; }
+      .analysis footer p strong {
+        font-weight: 400; }
   .analysis .overall-performance {
     display: block;
     margin: 50px 50px 0 50px;
