@@ -28,7 +28,8 @@ section {
   .landing h1 {
     margin: 0 0 40px 0; }
   .landing strong {
-    font-weight: 400; }
+    font-weight: 400;
+    text-decoration: underline; }
   .landing h2 {
     font-weight: 400;
     font-size: 26px; }
