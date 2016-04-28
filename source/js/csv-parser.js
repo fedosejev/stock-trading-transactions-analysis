@@ -1,4 +1,5 @@
 var Papa = require('papaparse');
+var adapter = require('./adapters/adapter');
 
 function convertCsvToJson(csv) {
   return new Promise(function (resolve, reject) {
@@ -18,7 +19,9 @@ function convertCsvToJson(csv) {
       return;
     }
 
-    resolve(results.data);
+    var data = adapter.adapt(results.data);
+
+    resolve(data);
 
   });
 }

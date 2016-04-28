@@ -1,0 +1,18 @@
+{
+  "services": {
+    "robinhood": {
+      "currency": "$",
+      "commissions": "0",
+      "dataKeyNames": ["account", "average_price", "cancel", "created_at", "cumulative_quantity", "fees", "id", "instrument", "last_transaction_at", "position", "price", "quantity", "ref_id", "reject_reason", "side", "state", "stop_price","symbol", "time_in_force", "trigger", "type", "updated_at", "url"]
+    },
+    "x-o": {
+      "currency": "£",
+      "commissions": "5.95",
+      "dataKeyNames": ["Account","Date","Stock code","Stock","Type","Quantity","Net value","Reference"]
+    }
+  },
+  "patterns": {
+    "account|average_price|cancel|created_at|cumulative_quantity|fees|id|instrument|last_transaction_at|position|price|quantity|ref_id|reject_reason|side|state|stop_price|symbol|time_in_force|trigger|type|updated_at|url": "robinhood",
+    "Account|Date|Net value|Quantity|Reference|Stock|Stock code|Type": "x-o"
+  }
+}

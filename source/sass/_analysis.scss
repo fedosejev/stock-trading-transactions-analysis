@@ -26,6 +26,14 @@
     a {
       border-bottom: 1px dotted #333;
     }
+
+    p {
+      margin: 0 0 20px 0;
+
+      strong {
+        font-weight: 400;
+      }
+    }
   }
 
   .overall-performance {

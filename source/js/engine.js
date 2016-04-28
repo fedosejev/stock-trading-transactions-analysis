@@ -1,4 +1,10 @@
 var moment = require('moment');
+var bankruptcy = require('./bankruptcy.json');
+
+function isBankruptcyFiled(symbol) {
+  symbol = symbol.split('.')[0];
+  return (typeof bankruptcy[symbol] !== 'undefined');
+}
 
 function calculateProfitsOrLossesForEachStock(stocks, config) {
 
@@ -30,7 +36,9 @@ function calculateProfitsOrLossesForEachStock(stocks, config) {
 
     var stockSells = {
       symbol: STOCK_SYMBOL,
-      sells: []
+      sells: [],
+      isBankruptcyFiled: isBankruptcyFiled(STOCK_SYMBOL),
+      investedAmount: 0
     };
 
     console.log('\n\n\n\n🔮 Calculating ' + STOCK_SYMBOL + '\n\n');
@@ -69,6 +77,8 @@ function calculateProfitsOrLossesForEachStock(stocks, config) {
 
         totalNumberOfSharesBoughtForThisStock = totalNumberOfSharesBoughtForThisStock + quantityBought;
 
+        stockSells.investedAmount = stockSells.investedAmount + netValuePaid;
+
       } else if (transaction['Type'] === 'Sold') {
 
         console.log('=== Sold on ' + transaction['Date'] + ' ===');
@@ -89,6 +99,12 @@ function calculateProfitsOrLossesForEachStock(stocks, config) {
         sellTransactions.push(soldTransaction);
 
         totalNumberOfSharesSoldForThisStock = totalNumberOfSharesSoldForThisStock + quantitySold;
+
+        stockSells.investedAmount = stockSells.investedAmount - netValuePaid;
+
+        if (stockSells.investedAmount < 0) {
+          stockSells.investedAmount = 0;
+        }
 
         buyTransactions.sort(function compare(a, b) {
           if (a.pricePaidPerShare < b.pricePaidPerShare) {
@@ -166,16 +182,22 @@ function calculateProfitsOrLossesForEachStock(stocks, config) {
         });
 
         console.log(stockSells);
-
       }
     });
 
     /*
       If you didn't sell or sold for what you bought it for, 
-      then you have losses, because of commissions you paid.
+      then you have losses, because of commissions you paid (if any).
     */
     if (finalSellOutcome === 0 && commissions > 0) {
       finalSellOutcome = -(stockTransactions.length * commissions);
+    }
+
+    /*
+      If bankruptcy was filed, then assume that everything that you've invested is lost.
+    */
+    if (stockSells.isBankruptcyFiled) {
+      finalSellOutcome = -(stockSells.investedAmount);
     }
 
     console.debug('\n------------------');

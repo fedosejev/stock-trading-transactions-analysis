@@ -1,6 +1,8 @@
 # Stock trading transactions analysis
 
-Works great with [X-O.co.uk](http://x-o.co.uk).
+Works with [Robinhood app](https://robinhood.com) and [X-O.co.uk](http://x-o.co.uk).
+
+Get in touch if you want to support stock trading data from your service: artemij.fedosejev@gmail.com
 
 ## Live
 
