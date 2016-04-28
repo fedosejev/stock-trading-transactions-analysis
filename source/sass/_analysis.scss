@@ -1,6 +1,12 @@
 .analysis {
   margin-bottom: 50px;
 
+  .corrupted-csv-data {
+    background-color: red;
+    color: #fff;
+    padding: 20px;
+  }
+
   a {
     color: #333;
     text-decoration: none;

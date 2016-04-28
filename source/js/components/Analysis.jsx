@@ -43,6 +43,8 @@ var Analysis = React.createClass({
     return (
       <div className="container analysis">
 
+        <div className="corrupted-csv-data">Looks like your data is corrupted. Please check if your CSV file is accurate.</div>
+
         <div className="overall-performance">
           <div className="row">
             <div className="col-sm-12">

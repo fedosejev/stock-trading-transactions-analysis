@@ -115,6 +115,10 @@ section {
 
 .analysis {
   margin-bottom: 50px; }
+  .analysis .corrupted-csv-data {
+    background-color: red;
+    color: #fff;
+    padding: 20px; }
   .analysis a {
     color: #333;
     text-decoration: none;
