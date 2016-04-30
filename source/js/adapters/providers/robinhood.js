@@ -13,6 +13,42 @@ function convertDate(alienDate) {
   return moment(alienDate, moment.ISO_8601).format('DD/MM/YYYY');
 }
 
+function getTransactionDate(alienDataObject) {
+  if (typeof alienDataObject.created_at !== 'undefined') {
+    return convertDate(alienDataObject.created_at);
+  }
+
+  if (typeof alienDataObject.date_executed !== 'undefined') {
+    return convertDate(alienDataObject.date_executed);
+  }
+
+  throw 'Can\'t find transaction date field. Use `created_at` or `date_executed`.';
+}
+
+function getTransactionType(alienDataObject) {
+  if (typeof alienDataObject.side !== 'undefined') {
+    return convertType(alienDataObject.side);
+  }
+
+  if (typeof alienDataObject.transaction_type !== 'undefined') {
+    return convertType(alienDataObject.transaction_type);
+  }
+
+  throw 'Can\'t find transaction type field. Use `side` or `transaction_type`.';
+}
+
+function getQuantity(alienDataObject) {
+  if (typeof alienDataObject.quantity !== 'undefined') {
+    return alienDataObject.quantity;
+  }
+
+  if (typeof alienDataObject.shares !== 'undefined') {
+    return alienDataObject.shares;
+  }
+
+  throw 'Can\'t find quantity field. Use `quantity` or `shares`.';
+}
+
 function adapt(alienData) {
 
   /*
@@ -27,22 +63,22 @@ function adapt(alienData) {
 
     Mapping X-O to Robinhood:
 
-    Date = created_at
+    Date = created_at / date_executed
     Stock code = symbol
-    Type = side
-    Quantity = quantity
-    Net value = price * quantity
+    Type = side / transaction_type
+    Quantity = quantity / shares
+    Net value = price * Quantity
 
   */
   
   var adaptedData = 
     alienData.map(function adaptDataObject(alienDataObject) {
       return {
-        'Date': convertDate(alienDataObject.created_at),
+        'Date': getTransactionDate(alienDataObject),
         'Stock code': alienDataObject.symbol,
-        'Type': convertType(alienDataObject.side),
-        'Quantity': alienDataObject.quantity,
-        'Net value': alienDataObject.price * alienDataObject.quantity
+        'Type': getTransactionType(alienDataObject),
+        'Quantity': getQuantity(alienDataObject),
+        'Net value': alienDataObject.price * getQuantity(alienDataObject)
       };
     });
 

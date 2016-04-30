@@ -22,6 +22,9 @@ function convertCsvToJson(csv) {
 
     var data = adapter.adapt(results.data);
 
+    console.log('data:');
+    console.log(data);
+
     resolve(data);
 
   });

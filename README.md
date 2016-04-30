@@ -4,6 +4,8 @@ Works with [Robinhood app](https://robinhood.com) and [X-O.co.uk](http://x-o.co.
 
 Get in touch if you want to support stock trading data from your service: artemij.fedosejev@gmail.com
 
+Supports data format produced by this module: https://github.com/markalfred/robinhood-to-csv
+
 ## Live
 
 http://stocktrading.report
