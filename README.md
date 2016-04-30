@@ -6,7 +6,7 @@ Get in touch if you want to support stock trading data from your service: artemi
 
 ## Live
 
-http://fedosejev.github.io/stock-trading-transactions-analysis
+http://stocktrading.report
 
 ## Install
 
