@@ -14,6 +14,7 @@
   "patterns": {
     "account|average_price|cancel|created_at|cumulative_quantity|fees|id|instrument|last_transaction_at|position|price|quantity|ref_id|reject_reason|settlement_date|side|state|stop_price|symbol|time_in_force|timestamp|trigger|type|updated_at|url": "robinhood",
     "account|average_price|cancel|created_at|cumulative_quantity|fees|id|instrument|last_transaction_at|position|price|quantity|ref_id|reject_reason|side|state|stop_price|symbol|time_in_force|trigger|type|updated_at|url": "robinhood",
+    "account|average_price|cancel|created_at|cumulative_quantity|fees|id|instrument|last_transaction_at|position|price|quantity|ref_id|reject_reason|side|state|stop_price|time_in_force|trigger|type|updated_at|url": "robinhood",
     "commission|date_executed|price|shares|symbol|transaction_type": "robinhood",
     "Account|Date|Net value|Quantity|Reference|Stock|Stock code|Type": "x-o"
   }
