@@ -72,13 +72,17 @@ function adapt(alienData) {
   */
   
   var adaptedData = 
-    alienData.map(function adaptDataObject(alienDataObject) {
+    alienData
+    .filter(function (alienDataObject) {
+      return alienDataObject.state === 'filled';
+    })
+    .map(function adaptDataObject(alienDataObject) {
       return {
         'Date': getTransactionDate(alienDataObject),
         'Stock code': alienDataObject.symbol,
         'Type': getTransactionType(alienDataObject),
         'Quantity': getQuantity(alienDataObject),
-        'Net value': alienDataObject.price * getQuantity(alienDataObject)
+        'Net value': alienDataObject.average_price * getQuantity(alienDataObject)
       };
     });
 
