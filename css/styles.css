@@ -176,6 +176,10 @@ section.disclaimer {
         border: none; }
         .landing .robinhood-login-form .not-saving-login-message a:hover {
           text-decoration: underline; }
+      .landing .robinhood-login-form .not-saving-login-message .icon {
+        width: 60px;
+        float: left;
+        margin: 0 10px 10px 0; }
     .landing .robinhood-login-form .submit-button-container {
       text-align: center; }
       .landing .robinhood-login-form .submit-button-container button {
