@@ -51,6 +51,11 @@ section {
       background-color: #f9f9f9; }
       .landing h2.how-to-use p {
         margin-top: 30px; }
+        .landing h2.how-to-use p small {
+          display: block;
+          font-weight: 200;
+          font-size: 16px;
+          text-transform: initial; }
   .landing small {
     text-transform: uppercase;
     font-size: 30px; }

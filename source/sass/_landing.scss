@@ -40,6 +40,13 @@
 
       p {
         margin-top: 30px;
+
+        small {
+          display: block;
+          font-weight: 200;
+          font-size: 16px;
+          text-transform: initial;
+        }
       }
     }
   }
