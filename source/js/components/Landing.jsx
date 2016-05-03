@@ -127,7 +127,7 @@ var Landing = React.createClass({
     }
 
     return (
-      <div className="container landing">
+      <div className="container landing promo">
         <div className="row">
           <div className="col-sm-12">
 
