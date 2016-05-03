@@ -35,8 +35,7 @@ var RobinhoodLoginForm = React.createClass({
           <img src="/icons/info.svg" className="icon" />
 
           We <strong>do not</strong> store your username and/or password. We respect your privacy. We ask for it because <em>at the moment</em> that's <strong>the only way</strong> to get access to your Robinhood data. In addition, StockTrading.Report is an open source project - you're welcome to inspect <a href="https://github.com/fedosejev/stock-trading-transactions-analysis" target="_blank">the source code</a>.
-          You can change your Robinhood app password after checking your results with us.
-          As an extra precaution you can change your Robinhood app password after checking your results with us.
+          In addition, we recommend changing your Robinhood app password reguraly.
         </p>
 
         <div className="submit-button-container">
