@@ -193,12 +193,14 @@ section {
     font-weight: 200;
     line-height: 45px;
     margin: 0;
-    margin-top: 80px;
-    margin-bottom: 60px; }
-  .landing .feature p {
-    font-size: 26px;
-    margin: 0;
-    margin-top: 10px; }
+    margin-top: 50px;
+    margin-bottom: 50px; }
+  .landing .feature {
+    margin-top: 50px; }
+    .landing .feature p {
+      font-size: 26px;
+      margin: 0;
+      margin-top: 10px; }
 
 .analysis {
   margin-bottom: 50px; }
