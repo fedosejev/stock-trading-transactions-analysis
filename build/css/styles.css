@@ -189,6 +189,8 @@ section.disclaimer {
     .landing .robinhood-login-form .submit-button-container {
       text-align: center;
       margin-top: 20px; }
+      .landing .robinhood-login-form .submit-button-container button {
+        white-space: normal; }
   .landing .getting-robinhood-data {
     display: inline-block;
     background-color: #fff;
