@@ -178,6 +178,9 @@ section {
     font-size: 40px;
     text-transform: uppercase;
     font-style: italic; }
+  .landing h5 {
+    font-size: 30px;
+    margin: 0; }
   .landing .feature p {
     font-size: 26px; }
 
