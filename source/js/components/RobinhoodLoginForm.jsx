@@ -16,7 +16,7 @@ var RobinhoodLoginForm = React.createClass({
       <form onSubmit={this.handleSubmitEvent} className="robinhood-login-form">
         
         <div className="icon">
-          <webicon icon="color-icons:lock"></webicon>
+          <img src="/icons/key.svg" />
         </div>
 
         <h3>Login with your Robinhood app</h3>

@@ -134,7 +134,7 @@ var Landing = React.createClass({
             <section className="landing">
 
               <div className="logo">
-                <webicon icon="//cdn.rawgit.com/icons8/flat-color-icons/v1.0.2/svg/bullish.svg"></webicon>
+                <img src="/icons/bullish.svg" />
               </div>
 
               <h1>Using <a href="https://www.robinhood.com" target="_blank">Robinhood app</a>?<br/>Do you want to see your stock trading results?</h1>
