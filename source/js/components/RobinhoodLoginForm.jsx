@@ -42,9 +42,6 @@ var RobinhoodLoginForm = React.createClass({
           <button type="submit" className="btn btn-success btn-lg">Show my stock trading results</button>
         </div>
 
-        <p className="not-saving-login-message">
-        </p>
-
       </form>
     );
   }
