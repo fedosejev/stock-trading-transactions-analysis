@@ -158,7 +158,7 @@ var Landing = React.createClass({
                 </p>
               </h2>
 
-              <h3>StockTrading.report calculates profits/losses from your stock trading via <a href="http://robinhood.com" target="_blank">Robinhood app</a> and <a href="http://x-o.co.uk" target="_blank">X-O.co.uk</a>.</h3>
+              <h5>StockTrading.report calculates profits/losses from your stock trading via <a href="http://robinhood.com" target="_blank">Robinhood app</a> and <a href="http://x-o.co.uk" target="_blank">X-O.co.uk</a>.</h5>
 
               <div className="feature">
                 <div className="logo">
