@@ -178,6 +178,8 @@ section {
     font-size: 40px;
     text-transform: uppercase;
     font-style: italic; }
+  .landing .feature p {
+    font-size: 20px; }
 
 .analysis {
   margin-bottom: 50px; }
