@@ -42,6 +42,8 @@ section {
       border-radius: 10px;
       font-weight: 200;
       background-color: #f9f9f9; }
+      .landing h2.how-to-use p {
+        margin-top: 30px; }
   .landing small {
     text-transform: uppercase;
     font-size: 30px; }
@@ -76,7 +78,7 @@ section {
   .landing .logo {
     display: inline-block;
     font-size: 100px;
-    margin: 40px 0 0 0; }
+    margin: 0; }
     .landing .logo img {
       width: 100px; }
   .landing form {
