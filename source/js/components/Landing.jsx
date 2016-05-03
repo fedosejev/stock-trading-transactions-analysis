@@ -140,7 +140,11 @@ var Landing = React.createClass({
 
               <h1>Using <a href="https://www.robinhood.com" target="_blank">Robinhood app</a>?<br/>Do you want to see your stock trading results?</h1>
 
-              <h5>StockTrading.Report calculates profits/losses from your stock trading via <a href="http://robinhood.com" target="_blank">Robinhood app</a> and <a href="http://x-o.co.uk" target="_blank">X-O.co.uk</a>.</h5>
+              <div className="row">
+                <div className="col-sm-8 col-sm-offset-2">
+                  <h5>StockTrading.Report calculates profits/losses from your stock trading via <a href="http://robinhood.com" target="_blank">Robinhood app</a> and <a href="http://x-o.co.uk" target="_blank">X-O.co.uk</a>.</h5>
+                </div>
+              </div>
 
               <div className="row">
                 <div className="col-sm-6 col-sm-offset-3">
