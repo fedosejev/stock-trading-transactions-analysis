@@ -184,7 +184,8 @@ section.disclaimer {
         margin: 0 10px 5px 0; }
     .landing .robinhood-login-form .warning-message {
       overflow: hidden;
-      font-size: 16px; }
+      font-size: 16px;
+      line-height: 24px; }
     .landing .robinhood-login-form .submit-button-container {
       text-align: center;
       margin-top: 20px; }
