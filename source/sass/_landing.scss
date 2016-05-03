@@ -215,15 +215,15 @@
       strong {
         text-decoration: none;
         border: none;
-        font-style: italic;
       }
 
       a {
         color: #000;
         border: none;
+        text-decoration: underline;
 
         &:hover {
-          text-decoration: underline;
+          text-decoration: none;
         }
       }
 
