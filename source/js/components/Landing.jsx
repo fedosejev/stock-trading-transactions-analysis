@@ -149,7 +149,14 @@ var Landing = React.createClass({
                 Or
               </div>
 
-              <h2 className="how-to-use">Drag and drop your CSV file exported from the Robinhood app here.</h2>
+              <h2 className="how-to-use">
+                <div className="logo">
+                  <img src="/icons/file.svg" />
+                </div>
+                <p>
+                  Drag and drop your CSV file exported from the Robinhood app here.
+                </p>
+              </h2>
 
               <h3>StockTrading.report calculates profits/losses from your stock trading via <a href="http://robinhood.com" target="_blank">Robinhood app</a> and <a href="http://x-o.co.uk" target="_blank">X-O.co.uk</a>. We <strong>do not</strong> store your data.</h3>
 
