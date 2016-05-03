@@ -181,8 +181,8 @@ section.disclaimer {
         width: 60px;
         float: left;
         margin: 0 10px 5px 0; }
-      .landing .robinhood-login-form .not-saving-login-message .warning-message {
-        overflow: hidden; }
+    .landing .robinhood-login-form .warning-message {
+      overflow: hidden; }
     .landing .robinhood-login-form .submit-button-container {
       text-align: center; }
   .landing .getting-robinhood-data {
