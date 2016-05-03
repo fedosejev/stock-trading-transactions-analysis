@@ -8,7 +8,7 @@
 
   h1 {
     margin: 0 0 40px 0;
-    line-height: 50px;
+    line-height: 70px;
   }
 
   strong {
@@ -18,14 +18,16 @@
 
   h2 {
     font-weight: 400;
-    font-size: 26px;
+    font-size: 22px;
+    margin-bottom: 20px;
 
     &.how-to-use {
       display: inline-block;
-      border: 1px dashed #999;
+      border: 1px dashed #ccc;
       padding: 30px;
-      border-radius: 20px;
+      border-radius: 10px;
       font-weight: 200;
+      background-color: #f9f9f9;
     }
   }
 
@@ -147,5 +149,87 @@
     text-align: center;
     font-size: 16px;
     font-weight: 200;
+  }
+
+  .robinhood-login-form {
+    border: 1px dashed #ccc;
+    border-radius: 10px;
+    padding: 40px;
+    background-color: #f9f9f9;
+    text-align: left;
+
+    .icon {
+      width: 100px;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    h3 {
+      margin: 0;
+      margin-bottom: 30px;
+      margin-top: 20px;
+      font-size: 30px;
+      font-weight: 400;
+      line-height: 40px;
+      text-align: center;
+    }
+
+    label {
+      font-weight: 200;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .not-saving-login-message {
+      font-size: 14px;
+      color: #777;
+
+      strong {
+        text-decoration: none;
+        border: none;
+        font-style: italic;
+      }
+
+      a {
+        color: #000;
+        border: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .submit-button-container {
+      text-align: center;
+
+      button {
+        margin-top: 10px;
+      }
+    }
+  }
+
+  .getting-robinhood-data {
+    display: inline-block;
+    background-color: #fff;
+    font-size: 40px;
+    padding-top: 30px;
+
+    img {
+      width: 100%;
+      margin-top: 20px;
+      border-radius: 20px;
+    }
+
+    p {
+      margin-top: 40px;
+      font-size: 30px;
+    }
+  }
+
+  .or {
+    font-size: 40px;
+    text-transform: uppercase;
+    font-style: italic;
   }
 }

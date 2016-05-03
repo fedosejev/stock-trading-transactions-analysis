@@ -35,18 +35,16 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
-    "c3": "^0.4.11-rc4",
-    "chartist": "^0.9.7",
-    "chartjs": "^0.3.7",
-    "dygraphs": "^1.1.1",
     "flux": "^2.1.1",
+    "jquery": "^2.2.3",
     "moment": "^2.12.0",
     "node-uuid": "^1.4.7",
     "object-assign": "^4.0.1",
     "papaparse": "^4.1.2",
     "react": "^0.14.0",
-    "react-chartist": "^0.10.1",
     "react-dom": "^0.14.0",
-    "react-file-drag-and-drop": "^0.1.6"
+    "react-file-drag-and-drop": "^0.1.6",
+    "robinhood": "^0.3.1",
+    "rx": "^4.1.0"
   }
 }

@@ -4,7 +4,6 @@ var CsvParser = require('../csv-parser');
 var Engine = require('../engine');
 var Utilities = require('../utilities');
 var ConfigStore = require('../stores/ConfigStore');
-var FileActionCreators = require('../actions/FileActionCreators');
 
 function calculateStockPerformances(stocks) {
   return new Promise(function (resolve, reject) {
@@ -76,6 +75,15 @@ function readFirstFile(files) {
     .catch(reportError);
 }
 
+function parseCsvData(csv) {
+  CsvParser
+    .convertCsvToJson(csv)
+    .then(CsvParser.groupTradesByStock)
+    .then(calculateStockPerformances)
+    .then(setStockTrades)
+    .catch(reportError);
+}
+
 function analyseJsonData(data) {
   CsvParser
     .groupTradesByStock(data)
@@ -85,6 +93,7 @@ function analyseJsonData(data) {
 }
 
 module.exports = {
+  parseCsvData: parseCsvData,
   readFirstFile: readFirstFile,
   analyseJsonData: analyseJsonData,
   setIsCorruptedCsvData: setIsCorruptedCsvData

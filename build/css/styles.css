@@ -27,19 +27,21 @@ section {
   text-align: center; }
   .landing h1 {
     margin: 0 0 40px 0;
-    line-height: 50px; }
+    line-height: 70px; }
   .landing strong {
     font-weight: 400;
     border-bottom: 1px solid #000; }
   .landing h2 {
     font-weight: 400;
-    font-size: 26px; }
+    font-size: 22px;
+    margin-bottom: 20px; }
     .landing h2.how-to-use {
       display: inline-block;
-      border: 1px dashed #999;
+      border: 1px dashed #ccc;
       padding: 30px;
-      border-radius: 20px;
-      font-weight: 200; }
+      border-radius: 10px;
+      font-weight: 200;
+      background-color: #f9f9f9; }
   .landing small {
     text-transform: uppercase;
     font-size: 30px; }
@@ -114,6 +116,60 @@ section {
     text-align: center;
     font-size: 16px;
     font-weight: 200; }
+  .landing .robinhood-login-form {
+    border: 1px dashed #ccc;
+    border-radius: 10px;
+    padding: 40px;
+    background-color: #f9f9f9;
+    text-align: left; }
+    .landing .robinhood-login-form .icon {
+      width: 100px;
+      text-align: center;
+      margin: 0 auto; }
+    .landing .robinhood-login-form h3 {
+      margin: 0;
+      margin-bottom: 30px;
+      margin-top: 20px;
+      font-size: 30px;
+      font-weight: 400;
+      line-height: 40px;
+      text-align: center; }
+    .landing .robinhood-login-form label {
+      font-weight: 200;
+      font-size: 20px;
+      margin-bottom: 10px; }
+    .landing .robinhood-login-form .not-saving-login-message {
+      font-size: 14px;
+      color: #777; }
+      .landing .robinhood-login-form .not-saving-login-message strong {
+        text-decoration: none;
+        border: none;
+        font-style: italic; }
+      .landing .robinhood-login-form .not-saving-login-message a {
+        color: #000;
+        border: none; }
+        .landing .robinhood-login-form .not-saving-login-message a:hover {
+          text-decoration: underline; }
+    .landing .robinhood-login-form .submit-button-container {
+      text-align: center; }
+      .landing .robinhood-login-form .submit-button-container button {
+        margin-top: 10px; }
+  .landing .getting-robinhood-data {
+    display: inline-block;
+    background-color: #fff;
+    font-size: 40px;
+    padding-top: 30px; }
+    .landing .getting-robinhood-data img {
+      width: 100%;
+      margin-top: 20px;
+      border-radius: 20px; }
+    .landing .getting-robinhood-data p {
+      margin-top: 40px;
+      font-size: 30px; }
+  .landing .or {
+    font-size: 40px;
+    text-transform: uppercase;
+    font-style: italic; }
 
 .analysis {
   margin-bottom: 50px; }

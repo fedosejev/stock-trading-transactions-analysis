@@ -18,12 +18,12 @@ function readFirstCsvFile(files) {
   });
 }
 
-module.exports = {
-  readFirstCsvFile: readFirstCsvFile
-};
-
 function handleFileContent(fileOnLoadEvent) {
   var csv = fileOnLoadEvent.target.result;
+  handleCsv(csv);
+}
+
+function handleCsv(csv) {
   var json;
   var stocks;
   var sellOutcomes;
@@ -50,3 +50,8 @@ function handleFileContent(fileOnLoadEvent) {
 
   renderOverallPerformance(overallPerformance, totalCommissions);
 }
+
+module.exports = {
+  readFirstCsvFile: readFirstCsvFile,
+  handleCsv: handleCsv
+};
