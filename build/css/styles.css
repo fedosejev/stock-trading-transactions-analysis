@@ -58,6 +58,8 @@ section {
           font-size: 16px;
           text-transform: initial;
           margin-top: 20px; }
+        .landing h2.how-to-use p strong {
+          border-bottom: none; }
   .landing small {
     text-transform: uppercase;
     font-size: 30px; }
