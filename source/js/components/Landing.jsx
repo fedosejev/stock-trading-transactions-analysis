@@ -8,7 +8,8 @@ var Landing = React.createClass({
   
   getInitialState: function () {
     return {
-      isFormSubmitted: false
+      isFormSubmitted: false,
+      isNothingFound: false
     };
   },
 
@@ -25,6 +26,9 @@ var Landing = React.createClass({
     robinhoodApi.getOrders(config, function (error, orders) {
       if (error) {
         console.error(error);
+        this.setState({
+          isNothingFound: true
+        });
         return;
       }
 
@@ -85,6 +89,27 @@ var Landing = React.createClass({
                 </div>
 
                 <p>We're getting your Robinhood trading results, please wait...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    if (this.state.isNothingFound) {
+      return (
+        <div className="container landing">
+          <div className="row">
+            <div className="col-sm-12">
+              <div className="getting-robinhood-data">
+
+                <div className="row">
+                  <div className="col-sm-6 col-sm-offset-3"> 
+                    <img src="/images/no-data-found.jpg" />
+                  </div>
+                </div>
+
+                <p>This is Searchy. He looked everywhere, but he didn't find any of your Robinhood data.</p>
               </div>
             </div>
           </div>
