@@ -25,6 +25,12 @@ section {
 
 .landing {
   text-align: center; }
+  .landing.promo {
+    background: url(/images/using-app.jpeg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; }
   .landing h1 {
     margin: 0 0 40px 0;
     line-height: 70px; }
