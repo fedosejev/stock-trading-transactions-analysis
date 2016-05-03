@@ -170,13 +170,13 @@ section.disclaimer {
       margin: 15px 0; }
       .landing .robinhood-login-form .not-saving-login-message strong {
         text-decoration: none;
-        border: none;
-        font-style: italic; }
+        border: none; }
       .landing .robinhood-login-form .not-saving-login-message a {
         color: #000;
-        border: none; }
+        border: none;
+        text-decoration: underline; }
         .landing .robinhood-login-form .not-saving-login-message a:hover {
-          text-decoration: underline; }
+          text-decoration: none; }
       .landing .robinhood-login-form .not-saving-login-message .icon {
         width: 60px;
         float: left;
