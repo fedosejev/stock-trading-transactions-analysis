@@ -139,6 +139,8 @@ var Landing = React.createClass({
 
               <h1>Using <a href="https://www.robinhood.com" target="_blank">Robinhood app</a>?<br/>Do you want to see your stock trading results?</h1>
 
+              <h5>StockTrading.Report calculates profits/losses from your stock trading via <a href="http://robinhood.com" target="_blank">Robinhood app</a> and <a href="http://x-o.co.uk" target="_blank">X-O.co.uk</a>.</h5>
+
               <div className="row">
                 <div className="col-sm-6 col-sm-offset-3">
                   <RobinhoodLoginForm handleFormSubmit={this.handleFormSubmit} />
@@ -158,8 +160,6 @@ var Landing = React.createClass({
                   <small>You can use <a href="https://github.com/fedosejev/using-robinhood-node-api-client" target="_blank">this script</a> to get CSV data with your trading transactions from the Robinhood app.</small>
                 </p>
               </h2>
-
-              <h5>StockTrading.Report calculates profits/losses from your stock trading via <a href="http://robinhood.com" target="_blank">Robinhood app</a> and <a href="http://x-o.co.uk" target="_blank">X-O.co.uk</a>.</h5>
 
               <div className="feature">
                 <div className="logo">
