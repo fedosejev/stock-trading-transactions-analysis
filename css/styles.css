@@ -182,9 +182,11 @@ section.disclaimer {
         float: left;
         margin: 0 10px 5px 0; }
     .landing .robinhood-login-form .warning-message {
-      overflow: hidden; }
+      overflow: hidden;
+      font-size: 16px; }
     .landing .robinhood-login-form .submit-button-container {
-      text-align: center; }
+      text-align: center;
+      margin-top: 20px; }
   .landing .getting-robinhood-data {
     display: inline-block;
     background-color: #fff;
