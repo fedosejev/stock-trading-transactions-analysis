@@ -3,6 +3,7 @@ var RobinhoodLoginForm = require('./RobinhoodLoginForm.jsx');
 var FileActionCreators = require('../actions/FileActionCreators');
 var robinhoodApi = require('../robinhood-api');
 var serverDataParser = require('../server-data-parser');
+var Disclaimer = require('./Disclaimer.jsx');
 
 var Landing = React.createClass({
   
@@ -116,7 +117,7 @@ var Landing = React.createClass({
                   </div>
                 </div>
 
-                <p>This is Searchy. He didn't find any of your Robinhood data.</p>
+                <p>This is Searchy. She didn't find any of your Robinhood data.</p>
                 <button className="btn btn-success btn-lg" onClick={this.handleTryAgainButtonClick}>Let's try again?</button>
 
               </div>
@@ -170,7 +171,10 @@ var Landing = React.createClass({
                 </p>
               </div>
 
-              <footer>Created by <a href="http://artemij.com">Artemij Fedosejev</a> in 2016.</footer>
+              <footer>
+                <Disclaimer />
+                Created by <a href="http://artemij.com">Artemij Fedosejev</a> in 2016.
+              </footer>
             </section>
 
           </div>

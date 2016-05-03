@@ -25,5 +25,15 @@ section {
   display: inline-block;
 }
 
+section.disclaimer {
+  color: #999;
+  font-size: 13px;
+  margin-bottom: 40px;
+
+  strong {
+    border-bottom: 0;
+  }
+}
+
 @import 'landing';
 @import 'analysis';

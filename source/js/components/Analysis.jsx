@@ -3,7 +3,7 @@ var StockTradesStore = require('../stores/StockTradesStore');
 var StockPerformance = require('../components/StockPerformance.jsx');
 var OverallStockPerformance = require('../components/OverallStockPerformance.jsx');
 var OverallStockPerformanceGraph = require('../components/OverallStockPerformanceGraph.jsx');
-var AnalyticsFooter = require('./AnalyticsFooter.jsx');
+var AnalysisFooter = require('./AnalysisFooter.jsx');
 
 var Analysis = React.createClass({
   
@@ -67,7 +67,7 @@ var Analysis = React.createClass({
           </div>
         </div>
 
-        <AnalyticsFooter />
+        <AnalysisFooter />
 
       </div>
     );
