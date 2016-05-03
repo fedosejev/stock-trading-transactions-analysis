@@ -190,7 +190,8 @@ section.disclaimer {
       text-align: center;
       margin-top: 20px; }
       .landing .robinhood-login-form .submit-button-container button {
-        white-space: normal; }
+        white-space: normal;
+        font-weight: 200; }
   .landing .getting-robinhood-data {
     display: inline-block;
     background-color: #fff;
