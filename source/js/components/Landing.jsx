@@ -109,7 +109,7 @@ var Landing = React.createClass({
                   </div>
                 </div>
 
-                <p>This is Searchy. He looked everywhere, but he didn't find any of your Robinhood data.</p>
+                <p>This is Searchy. He didn't find any of your Robinhood data.</p>
               </div>
             </div>
           </div>
