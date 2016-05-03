@@ -134,7 +134,7 @@ var Landing = React.createClass({
             <section className="landing">
 
               <div className="logo">
-                <img src="/icons/bullish.svg" />
+                <img src="/icons/sales_performance.svg" />
               </div>
 
               <h1>Using <a href="https://www.robinhood.com" target="_blank">Robinhood app</a>?<br/>Do you want to see your stock trading results?</h1>
@@ -151,7 +151,7 @@ var Landing = React.createClass({
 
               <h2 className="how-to-use">
                 <div className="logo">
-                  <img src="/icons/file.svg" />
+                  <img src="/icons/document.svg" />
                 </div>
                 <p>
                   Drag and drop your CSV file exported from the Robinhood app here.
