@@ -2,7 +2,7 @@ var jquery = require('jquery');
 
 function getOrders(config, callback) {
   var request = jquery.ajax({
-    url: 'http://localhost:8888/api/robinhood/orders',
+    url: 'http://163.172.150.107:8888/api/robinhood/orders',
     method: 'post',
     data: {
       username: config.username,
