@@ -40,6 +40,11 @@ var RobinhoodLoginForm = React.createClass({
         <div className="submit-button-container">
           <button type="submit" className="btn btn-success btn-lg">Show my stock trading results</button>
         </div>
+
+        <p className="not-saving-login-message">
+          You can change your Robinhood app password after checking your results with us.
+        </p>
+
       </form>
     );
   }
