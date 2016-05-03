@@ -13,6 +13,13 @@ var Landing = React.createClass({
     };
   },
 
+  handleTryAgainButtonClick: function () {
+    this.setState({
+      isFormSubmitted: false,
+      isNothingFound: false
+    });
+  },
+
   handleFormSubmit: function (username, password) {
     this.setState({
       isFormSubmitted: true
@@ -110,6 +117,8 @@ var Landing = React.createClass({
                 </div>
 
                 <p>This is Searchy. He didn't find any of your Robinhood data.</p>
+                <button className="btn btn-success btn-lg" onClick={this.handleTryAgainButtonClick}>Let's try again?</button>
+
               </div>
             </div>
           </div>
