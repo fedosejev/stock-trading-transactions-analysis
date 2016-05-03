@@ -16,7 +16,7 @@
   }
 
   h1 {
-    margin: 10px 0 40px 0;
+    margin: 10px 0 0 0;
     line-height: 70px;
   }
 
@@ -224,6 +224,12 @@
         &:hover {
           text-decoration: underline;
         }
+      }
+
+      .icon {
+        width: 60px;
+        float: left;
+        margin: 0 10px 10px 0;
       }
     }
 
