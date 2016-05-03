@@ -55,7 +55,8 @@ section {
           display: block;
           font-weight: 200;
           font-size: 16px;
-          text-transform: initial; }
+          text-transform: initial;
+          margin-top: 20px; }
   .landing small {
     text-transform: uppercase;
     font-size: 30px; }
