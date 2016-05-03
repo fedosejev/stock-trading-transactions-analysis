@@ -24,7 +24,8 @@ section {
   height: 100%; }
 
 .landing {
-  text-align: center; }
+  text-align: center;
+  padding-top: 30px; }
   .landing.promo {
     background: url(/images/using-app.jpeg) no-repeat center center fixed;
     -webkit-background-size: cover;
