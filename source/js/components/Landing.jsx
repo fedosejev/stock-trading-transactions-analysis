@@ -27,6 +27,7 @@ var Landing = React.createClass({
       if (error) {
         console.error(error);
         this.setState({
+          isFormSubmitted: false,
           isNothingFound: true
         });
         return;
