@@ -171,6 +171,8 @@ var Landing = React.createClass({
                   <img src="/icons/approval.svg" />
                 </div>
                 <p>
+                  <img src="/icons/about.svg" />
+
                   We <strong>do not</strong> store your data. Check <a href="https://github.com/fedosejev/stock-trading-transactions-analysis" target="_blank">our source code</a>.
                 </p>
               </div>
