@@ -157,8 +157,6 @@ var Landing = React.createClass({
                   Drag and drop your CSV file exported from the Robinhood app here.
                   <small>You can use <a href="https://github.com/fedosejev/using-robinhood-node-api-client" target="_blank">this script</a> to get CSV data with your trading transactions from the Robinhood app.</small>
                 </p>
-                <p>
-                </p>
               </h2>
 
               <h5>StockTrading.Report calculates profits/losses from your stock trading via <a href="http://robinhood.com" target="_blank">Robinhood app</a> and <a href="http://x-o.co.uk" target="_blank">X-O.co.uk</a>.</h5>

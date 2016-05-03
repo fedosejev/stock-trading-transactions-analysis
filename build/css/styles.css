@@ -50,7 +50,8 @@ section {
       font-weight: 200;
       background-color: #f9f9f9; }
       .landing h2.how-to-use p {
-        margin-top: 30px; }
+        margin-top: 30px;
+        margin-bottom: 0; }
         .landing h2.how-to-use p small {
           display: block;
           font-weight: 200;
