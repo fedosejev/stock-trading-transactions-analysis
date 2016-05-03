@@ -39,7 +39,7 @@ var RobinhoodLoginForm = React.createClass({
         </p>
 
         <div className="submit-button-container">
-          <button type="submit" className="btn btn-success btn-lg">I understand the risks - show my stock trading results!</button>
+          <button type="submit" className="btn btn-success btn-lg">I understand the risks, please show my stock trading results</button>
         </div>
 
       </form>
