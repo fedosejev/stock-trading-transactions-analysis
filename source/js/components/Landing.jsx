@@ -69,8 +69,7 @@ var Landing = React.createClass({
       var csv = serverDataParser.convertJsonToCsv(orders);
 
       FileActionCreators.parseCsvData(csv);
-    });
-
+    }.bind(this));
   },
 
   render: function () {
