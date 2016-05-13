@@ -31,12 +31,14 @@ var RobinhoodLoginForm = React.createClass({
           <input type="password" className="form-control input-lg" id="passwordInput" required ref="password" />
         </div>
 
-        <p className="not-saving-login-message">
+        <div className="not-saving-login-message">
           <img src="/icons/info.svg" className="icon" />
 
-          <p className="warning-message">We <strong>do not</strong> store your username and/or password. We respect your privacy. We ask for it because <em>at the moment</em> that's <strong>the only way</strong> to get access to your Robinhood data. In addition, StockTrading.Report is an open source project - you're welcome to inspect <a href="https://github.com/fedosejev/stock-trading-transactions-analysis" target="_blank">the source code</a>.
-          Furthermore, we recommend changing your Robinhood app password reguraly.</p>
-        </p>
+          <p className="warning-message">
+            We <strong>do not</strong> store your username and/or password. We respect your privacy. We ask for it because <em>at the moment</em> that's <strong>the only way</strong> to get access to your Robinhood data. In addition, StockTrading.Report is an open source project - you're welcome to inspect <a href="https://github.com/fedosejev/stock-trading-transactions-analysis" target="_blank">the source code</a>.
+            Furthermore, we recommend changing your Robinhood app password reguraly.
+          </p>
+        </div>
 
         <div className="submit-button-container">
           <button type="submit" className="btn btn-success btn-lg">I understand the risks, please show my stock trading results</button>

@@ -63,7 +63,7 @@ var Analysis = React.createClass({
 
         <div className="row">
           <div className="col-sm-12">
-              {this.createStockPerformanceElements()}
+            {this.createStockPerformanceElements()}
           </div>
         </div>
 

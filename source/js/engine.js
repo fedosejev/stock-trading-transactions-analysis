@@ -11,6 +11,7 @@ function calculateProfitsOrLossesForEachStock(stocks, config) {
   var currencySign = config.currencySign;
   var commissions = config.commissions;
   var dateFormat = config.dateFormat;
+  var XO_BUY_TAX = 24.85; // This TAX is called: 'Transfer Stamp'
 
   var overallSellOutcome = 0;
   var stocksSells = [];
@@ -61,7 +62,7 @@ function calculateProfitsOrLossesForEachStock(stocks, config) {
         console.log('=== Bought on ' + transaction['Date'] + ' ===');
 
         var netValuePaid = parseFloat(transaction['Net value']);
-        var quantityBought = parseInt(transaction['Quantity']);
+        var quantityBought = parseInt(transaction['Quantity'], 10);
         var pricePaidPerShare = netValuePaid / quantityBought;
 
         var boughtTransaction = {
@@ -84,7 +85,7 @@ function calculateProfitsOrLossesForEachStock(stocks, config) {
         console.log('=== Sold on ' + transaction['Date'] + ' ===');
 
         var netValuePaid = parseFloat(transaction['Net value']);
-        var quantitySold = parseInt(transaction['Quantity']);
+        var quantitySold = parseInt(transaction['Quantity'], 10);
         var pricePaidPerShare = netValuePaid / quantitySold;
 
         var soldTransaction = {
@@ -118,7 +119,7 @@ function calculateProfitsOrLossesForEachStock(stocks, config) {
           return 0;
         });
 
-        var quantitySold = parseInt(transaction['Quantity']);
+        var quantitySold = parseInt(transaction['Quantity'], 10);
         var sellOutcome = 0;
 
         for (var i = 0; i < buyTransactions.length; i++) {
@@ -129,7 +130,7 @@ function calculateProfitsOrLossesForEachStock(stocks, config) {
 
             var previousSellOutcome = sellOutcome;
 
-            sellOutcome = sellOutcome + (parseFloat(transaction['Net value']) / parseInt(transaction['Quantity']) * quantitySold) - buyTransactions[i].netValuePaid;
+            sellOutcome = sellOutcome + (parseFloat(transaction['Net value']) / parseInt(transaction['Quantity'], 10) * quantitySold) - buyTransactions[i].netValuePaid;
 
             console.log('Actually sold:', quantitySold);
 
@@ -149,7 +150,7 @@ function calculateProfitsOrLossesForEachStock(stocks, config) {
 
             var previousSellOutcome = sellOutcome;
 
-            sellOutcome = sellOutcome + ((parseFloat(transaction['Net value']) / parseInt(transaction['Quantity'])) * buyTransactions[i].numberOfShares) - (buyTransactions[i].pricePaidPerShare * buyTransactions[i].numberOfShares);
+            sellOutcome = sellOutcome + ((parseFloat(transaction['Net value']) / parseInt(transaction['Quantity'], 10)) * buyTransactions[i].numberOfShares) - (buyTransactions[i].pricePaidPerShare * buyTransactions[i].numberOfShares);
 
             console.debug((sellOutcome - previousSellOutcome).toFixed(2));
 
@@ -162,7 +163,7 @@ function calculateProfitsOrLossesForEachStock(stocks, config) {
 
             var previousSellOutcome = sellOutcome;
 
-            sellOutcome = sellOutcome + ((parseFloat(transaction['Net value']) / parseInt(transaction['Quantity'])) * quantitySold) - (buyTransactions[i].pricePaidPerShare * quantitySold);
+            sellOutcome = sellOutcome + ((parseFloat(transaction['Net value']) / parseInt(transaction['Quantity'], 10)) * quantitySold) - (buyTransactions[i].pricePaidPerShare * quantitySold);
 
             console.log('Actually sold:', quantitySold);
 
@@ -190,7 +191,7 @@ function calculateProfitsOrLossesForEachStock(stocks, config) {
       then you have losses, because of commissions you paid (if any).
     */
     if (finalSellOutcome === 0 && commissions > 0) {
-      finalSellOutcome = -(stockTransactions.length * commissions);
+      finalSellOutcome = -(calculateCommissions(stockTransactions, commissions, XO_BUY_TAX));
     }
 
     /*
@@ -211,7 +212,8 @@ function calculateProfitsOrLossesForEachStock(stocks, config) {
     overallSellOutcome = overallSellOutcome + finalSellOutcome;
 
     stockSells.overallResult = finalSellOutcome;
-    stockSells.commissions = stockTransactions.length * commissions;
+    stockSells.commissions = calculateCommissions(stockTransactions, commissions, XO_BUY_TAX);
+
     stockSells.sharesHolding = totalNumberOfSharesBoughtForThisStock - totalNumberOfSharesSoldForThisStock;
 
     stocksSells.push(stockSells);
@@ -222,6 +224,18 @@ function calculateProfitsOrLossesForEachStock(stocks, config) {
   console.debug('=====================================================\n\n\n');
 
   return stocksSells;
+}
+
+function calculateCommissions(stockTransactions, commissions, buyTax) {
+  var STOCK_SYMBOL = stockTransactions[0]['Stock code'];
+
+  return stockTransactions.reduce(function (accumulator, stockTransaction) {
+    if (STOCK_SYMBOL === 'LLOY.L' && stockTransaction['Type'] === 'Bought') {
+      return accumulator + parseFloat(commissions) + parseFloat(buyTax);
+    }
+
+    return accumulator + parseFloat(commissions);
+  }, 0);
 }
 
 function calculatePerformanceAcrossAllStocks(stockPerformances) {

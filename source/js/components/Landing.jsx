@@ -176,7 +176,14 @@ var Landing = React.createClass({
               </div>
 
               <footer>
-                <Disclaimer />
+                <section className="disclaimer">
+                  <div className="row">
+                    <div className="col-sm-8 col-sm-offset-2">
+                      <Disclaimer />
+                    </div>
+                  </div>
+                </section>
+                
                 Created by <a href="http://artemij.com">Artemij Fedosejev</a> in 2016.
               </footer>
             </section>
