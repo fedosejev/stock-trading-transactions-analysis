@@ -161,8 +161,8 @@ var Landing = React.createClass({
                   <img src="/icons/document.svg" />
                 </div>
                 <p>
-                  <strong>Drag and drop your CSV file exported from the Robinhood app here.</strong>
-                  <small>You can use <a href="https://github.com/fedosejev/using-robinhood-node-api-client" target="_blank">this script</a> to get CSV data with your trading transactions from the Robinhood app.</small>
+                  <strong>Drag and drop your CSV file exported from the Robinhood app/X-O.co.uk account here.</strong>
+                  <small>You can use <a href="https://github.com/fedosejev/using-robinhood-node-api-client" target="_blank">this script</a> to get CSV data with your trading transactions from the Robinhood app. You can download transaction history in your X-O.co.uk account.</small>
                 </p>
               </h2>
 
