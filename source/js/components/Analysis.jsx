@@ -28,8 +28,23 @@ var Analysis = React.createClass({
   },
 
   createStockPerformanceElements: function () {
+    console.log('This is it:');
+    console.log(this.state.stockTrades.stockPerformances);
     if (typeof this.state.stockTrades.stockPerformances !== 'undefined') {
-      return this.state.stockTrades.stockPerformances.map(this.createStockPerformanceElement);
+      return this
+              .state
+              .stockTrades
+              .stockPerformances
+              .sort(function compareOverallResults(a, b) {
+                if (a.overallResult < b.overallResult) {
+                  return 1;
+                }
+                if (a.overallResult > b.overallResult) {
+                  return -1;
+                }
+                return 0;
+              })
+              .map(this.createStockPerformanceElement);
     }
 
     return null;
