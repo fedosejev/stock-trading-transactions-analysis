@@ -62,6 +62,6 @@ gulp.task('build-for-development', ['build-js-for-development', 'build-sass-for-
 gulp.task('build-for-production', ['build-js-for-production', 'build-sass-for-production', 'build-html-for-production']);
 
 gulp.task('watch', ['build-for-development', 'watch-for-development']);
-gulp.task('build', ['watch-for-development']);
+gulp.task('build', ['build-for-development']);
 
 gulp.task('default', ['watch-for-development', 'build-for-development']);
