@@ -8,10 +8,9 @@ function setUuidForEachStockPerformance(stockPerformances) {
 }
 
 function getListOfStockSymbols(stockPerformances) {
-  return stockPerformances
-    .map(function getStockSymbol(stockPerformance) {
-      return stockPerformance.symbol.split('.')[0];
-    });
+  return stockPerformances.map(function getStockSymbol(stockPerformance) {
+    return stockPerformance.symbol.split('.')[0];
+  });
 }
 
 function getListOfStockPerformanceNumbers(stockPerformances) {
