@@ -6,11 +6,11 @@ var htmlMinifier = require('gulp-html-minifier');
 var uglify = require('gulp-uglify');
 var sass = require('gulp-sass');
 var rename = require('gulp-rename');
-var reactify = require('reactify');
+var babelify = require('babelify');
 
 gulp.task('build-js-for-development', function () {
   return browserify('./source/js/app.jsx')
-        .transform(reactify)
+        .transform('babelify', { presets: ['react', 'es2015'] })
         .bundle()
         .pipe(vinylSourceStream('app.js'))
         .pipe(gulp.dest('./build/js/'));
