@@ -18,7 +18,7 @@ gulp.task('build-js-for-development', function () {
 
 gulp.task('build-js-for-production', function () {
   return browserify('./source/js/app.jsx')
-        .transform(reactify)
+        .transform('babelify', { presets: ['react', 'es2015'] })
         .bundle()
         .pipe(vinylSourceStream('app.js'))
         .pipe(vinylBuffer())
