@@ -6,6 +6,34 @@ function isBankruptcyFiled(symbol) {
   return (typeof bankruptcy[symbol] !== 'undefined');
 }
 
+function compareDates(a, b) {
+  var dateFormat = this;
+  var date1 = moment(a['Date'], dateFormat);
+  var date2 = moment(b['Date'], dateFormat);
+
+  if (date1 < date2) {
+    return -1;
+  }
+  
+  if (date1 > date2) {
+    return 1;
+  }
+
+  return 0;
+}
+
+function comparePricesPaidPerShare(a, b) {
+  if (a.pricePaidPerShare < b.pricePaidPerShare) {
+    return -1;
+  }
+
+  if (a.pricePaidPerShare > b.pricePaidPerShare) {
+    return 1;
+  }
+
+  return 0;
+}
+
 function calculateProfitsOrLossesForEachStock(stocks, config) {
 
   var currencySign = config.currencySign;
@@ -18,20 +46,7 @@ function calculateProfitsOrLossesForEachStock(stocks, config) {
 
   stocks.forEach(function calculateForStock(stockTransactions) {
 
-    stockTransactions = stockTransactions.sort(function sortDates(a, b) {
-      var date1 = moment(a['Date'], dateFormat);
-      var date2 = moment(b['Date'], dateFormat);
-
-      if (date1 < date2) {
-        return -1;
-      }
-      
-      if (date1 > date2) {
-        return 1;
-      }
-
-      return 0;
-    });
+    stockTransactions = stockTransactions.sort(compareDates.bind(dateFormat));
 
     var STOCK_SYMBOL = stockTransactions[0]['Stock code'];
 
@@ -57,6 +72,11 @@ function calculateProfitsOrLossesForEachStock(stocks, config) {
     var finalSellOutcome = 0;
 
     stockTransactions.forEach(function calculateForTransaction(transaction) {
+
+      console.log('---------------------');
+      console.log('Transaction:', transaction);
+      console.log('---------------------');
+
       if (transaction['Type'] === 'Bought') {
 
         console.log('=== Bought on ' + transaction['Date'] + ' ===');
@@ -107,17 +127,7 @@ function calculateProfitsOrLossesForEachStock(stocks, config) {
           stockSells.investedAmount = 0;
         }
 
-        buyTransactions.sort(function compare(a, b) {
-          if (a.pricePaidPerShare < b.pricePaidPerShare) {
-            return -1;
-          }
-
-          if (a.pricePaidPerShare > b.pricePaidPerShare) {
-            return 1;
-          }
-
-          return 0;
-        });
+        buyTransactions.sort(comparePricesPaidPerShare);
 
         var quantitySold = parseInt(transaction['Quantity'], 10);
         var sellOutcome = 0;
@@ -137,6 +147,8 @@ function calculateProfitsOrLossesForEachStock(stocks, config) {
             console.debug((sellOutcome - previousSellOutcome).toFixed(2));
 
             buyTransactions[i].numberOfShares = buyTransactions[i].numberOfShares - quantitySold;
+            buyTransactions[i].netValuePaid = buyTransactions[i].netValuePaid - (parseFloat(transaction['Net value']) / parseInt(transaction['Quantity'], 10) * quantitySold);
+
             break;
 
           } else if (buyTransactions[i].numberOfShares < quantitySold) {
@@ -155,6 +167,7 @@ function calculateProfitsOrLossesForEachStock(stocks, config) {
             console.debug((sellOutcome - previousSellOutcome).toFixed(2));
 
             buyTransactions[i].numberOfShares = 0;
+            buyTransactions[i].netValuePaid = buyTransactions[i].netValuePaid - (parseFloat(transaction['Net value']) / parseInt(transaction['Quantity'], 10) * quantitySold);
 
           } else if (buyTransactions[i].numberOfShares > quantitySold) { 
 
@@ -170,6 +183,8 @@ function calculateProfitsOrLossesForEachStock(stocks, config) {
             console.debug((sellOutcome - previousSellOutcome).toFixed(2));
 
             buyTransactions[i].numberOfShares = buyTransactions[i].numberOfShares - quantitySold;
+            buyTransactions[i].netValuePaid = buyTransactions[i].netValuePaid - (parseFloat(transaction['Net value']) / parseInt(transaction['Quantity'], 10) * quantitySold);
+
             break;
           
           }

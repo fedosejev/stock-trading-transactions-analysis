@@ -2,7 +2,6 @@ var React = require('react');
 var StockTradesStore = require('../stores/StockTradesStore');
 var StockPerformance = require('../components/StockPerformance.jsx');
 var OverallStockPerformance = require('../components/OverallStockPerformance.jsx');
-var OverallStockPerformanceGraph = require('../components/OverallStockPerformanceGraph.jsx');
 var AnalysisFooter = require('./AnalysisFooter.jsx');
 
 var Analysis = React.createClass({
@@ -28,8 +27,6 @@ var Analysis = React.createClass({
   },
 
   createStockPerformanceElements: function () {
-    console.log('This is it:');
-    console.log(this.state.stockTrades.stockPerformances);
     if (typeof this.state.stockTrades.stockPerformances !== 'undefined') {
       return this
               .state
